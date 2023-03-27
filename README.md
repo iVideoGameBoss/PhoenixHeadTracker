@@ -8,11 +8,11 @@ Connect your Nreal Air glasses to your PC using the USB-Type C connector. Start 
 ![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/228048186-b8acbd7c-5d1a-4be6-b215-1a3ed18b1120.png)
 
 # How to build using Visual Studio 22
-PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the AirAPI_Windows.dll and hidapi.dll in the Debug folder. These two files are required in order to connect to Nreal Air glasses.
+PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the AirAPI_Windows.dll and hidapi.dll in the PhoenixHeadTracker/bin/x64/Debug/ folder. These two files are required in order to connect to Nreal Air glasses.
 
 
 
-Once you clone the project, open in Visual Studio 22. Make sure you set to build on x64 and debug.Then simply click on start.
+Once you clone the project, open in Visual Studio 22 by clicking on PhoenixHeadTracker.sln. Make sure you set to build on x64 and debug.Then simply click on start.
 
 ![visualstudio22](https://user-images.githubusercontent.com/129109589/228050319-965458a1-af36-466a-8aa7-c45364bc91dd.png)
 
