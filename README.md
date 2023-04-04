@@ -1,5 +1,5 @@
 # PhoenixHeadTracker 2.0.0.0 
-The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data. By detecting changes in the user's head yaw and pitch, this program can control the movement of the computer mouse on screen (You wil need to implement), which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data. By detecting changes in the user's head yaw and pitch, this program can control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 
 # How to use
