@@ -4,7 +4,7 @@ The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to 
 https://user-images.githubusercontent.com/129109589/229800261-125fdc69-845c-4815-9231-f5b6f53a43fa.mp4
 
 # How to use
-Connect your Nreal Air glasses to your PC using the USB-Type C connector. Start PhoenixHeadTracker and click on 'Connect Nreal Air'. Wait 5+ seconds for the sensors to adjust. Then click on 'Start Mouse Track'
+Connect your Nreal Air glasses to your PC using the USB-Type C connector or you can also use a [goFunco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1). Start PhoenixHeadTracker and click on 'Connect Nreal Air'. Wait 5+ seconds for the sensors to adjust. Then click on 'Start Mouse Track'
 
 ![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/229691875-7138b0c5-653c-4bdc-b900-8723fac1a0e0.png)
 
@@ -28,7 +28,7 @@ Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug folder. I
 
 I worked all day and night on this thing and it was worth it for you all. You will love your Nreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Flight Simulator, Cyberpunk 2077.
 
-![Donate to help me buy a Steamdeck :)](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
+[Donate to help me buy a Steamdeck](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
 
 
 
