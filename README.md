@@ -1,4 +1,4 @@
-# PhoenixHeadTracker 2.0.0.0 
+# PhoenixHeadTracker
 The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data. By detecting changes in the user's head yaw and pitch, this program can control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 https://user-images.githubusercontent.com/129109589/229800261-125fdc69-845c-4815-9231-f5b6f53a43fa.mp4
@@ -11,7 +11,7 @@ Connect your Nreal Air glasses to your PC using the USB-Type C connector or you 
 
 # Download Latest Release
 
-Phoenixheadtracker 2.0.0.0 https://github.com/iVideoGameBoss/PhoenixHeadTracker/releases
+Phoenixheadtracker 2.0.0.1 https://github.com/iVideoGameBoss/PhoenixHeadTracker/releases
 
 # How to build using Visual Studio 22
 PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the AirAPI_Windows.dll and hidapi.dll in the PhoenixHeadTracker/bin/x64/Debug/ folder. These two files are required in order to connect to Nreal Air glasses.
