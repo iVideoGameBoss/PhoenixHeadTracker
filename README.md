@@ -28,7 +28,7 @@ Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug folder. I
 
 I worked all day and night on this thing and it was worth it for you all. You will love your Nreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Flight Simulator, Cyberpunk 2077.
 
-[Donate to help me buy a Steamdeck](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
+[You can Donate to help me buy a Steam Deck. Thank You!](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
 
 
 
