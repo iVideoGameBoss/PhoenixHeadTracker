@@ -5,7 +5,7 @@ https://user-images.githubusercontent.com/129109589/229800261-125fdc69-845c-4815
 
 I worked all day and night on this thing and it was worth it for you all. You will love your Nreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Flight Simulator, Cyberpunk 2077.
 
-[You can Donate to help me buy a Steam Deck. Thank You!](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
+[Steam Deck Fund](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
 
 # How to use
 Connect your Nreal Air glasses to your PC using the USB-Type C connector or you can also use a [goFunco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1). Start PhoenixHeadTracker and click on 'Connect Nreal Air'. Wait 5+ seconds for the sensors to adjust. Then click on 'Start Mouse Track'
