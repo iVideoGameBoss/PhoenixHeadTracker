@@ -1,5 +1,5 @@
 # PhoenixHeadTracker
-The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data. By detecting changes in the user's head yaw and pitch, this program can control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or can control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 https://user-images.githubusercontent.com/129109589/229800261-125fdc69-845c-4815-9231-f5b6f53a43fa.mp4
 
@@ -11,10 +11,16 @@ I worked all day and night on this thing and it was worth it for you all. You wi
 https://user-images.githubusercontent.com/129109589/230802230-56d4b4d8-45cb-4d59-8653-de35eb603621.mp4
 
 
-# How to use
-Connect your Nreal Air glasses to your PC using the USB-Type C connector or you can also use a [goFunco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1). Start PhoenixHeadTracker and click on 'Connect Nreal Air'. Wait 5+ seconds for the sensors to adjust. Then click on 'Start Mouse Track'
+# How to use PhoenixHeadTracker
+To connect your Nreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFunco adapter can also be used, which can be obtained from the following Amazon link: [goFanco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1).
 
-![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/229691875-7138b0c5-653c-4bdc-b900-8723fac1a0e0.png)
+It is important to ensure that your glasses have a direct connection to the PC. Once connected, launch the PhoenixHeadTracker software and click on the 'Connect Nreal Air' option. Please allow a few seconds for the sensors to adjust.
+
+You now have two options for utilizing the head tracking data. Firstly, you can use opentrack, or alternatively, you can click on 'Start Mouse Track'. This will allow you to control the mouse on your screen, enabling you to look around in video games.
+
+Should you choose to use opentrack, you can do so by clicking on the 'start opentrack UDP' option. Within opentrack, you will need to select UDP over network in order to receive the data.
+
+![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/230802488-5203d2f3-403e-49b3-add3-fdfeb43947ca.png)
 
 
 # Download Latest Release
