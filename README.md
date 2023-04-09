@@ -8,7 +8,7 @@ I worked all day and night on this thing and it was worth it for you all. You wi
 [Steam Deck Fund](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
 
 # How to use PhoenixHeadTracker
-To connect your Nreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFunco adapter can also be used, which can be obtained from the following Amazon link: [goFunco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)
+To connect your Nreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFunco adapter can also be used, which can be obtained from the following Amazon link: [goFanco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)
 
 It is important to ensure that your glasses have a direct connection to the PC. Once connected, launch the PhoenixHeadTracker software and click on the 'Connect Nreal Air' option. Please allow a few seconds for the sensors to adjust.
 
