@@ -1,18 +1,16 @@
 # PhoenixHeadTracker
-The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or can control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 https://user-images.githubusercontent.com/129109589/229800261-125fdc69-845c-4815-9231-f5b6f53a43fa.mp4
 
-I worked all day and night on this thing and it was worth it for you all. You will love your Nreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Flight Simulator, Cyberpunk 2077.
+I worked all day and night on this thing and it was worth it for you all. You will love your Nreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Microsoft Flight Simulator, Cyberpunk 2077.
 
 [Steam Deck Fund](https://www.paypal.com/paypalme/ivideogameboss?country.x=US&locale.x=en_US)
 
-
-https://user-images.githubusercontent.com/129109589/230802230-56d4b4d8-45cb-4d59-8653-de35eb603621.mp4
-
+https://user-images.githubusercontent.com/129109589/230780822-298d8527-4deb-4d49-a18e-28d2e3c5ec9b.mp4
 
 # How to use PhoenixHeadTracker
-To connect your Nreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFunco adapter can also be used, which can be obtained from the following Amazon link: [goFanco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1).
+To connect your Nreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFanco adapter can also be used, which can be obtained from the following Amazon link: [goFanco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)
 
 It is important to ensure that your glasses have a direct connection to the PC. Once connected, launch the PhoenixHeadTracker software and click on the 'Connect Nreal Air' option. Please allow a few seconds for the sensors to adjust.
 
@@ -20,12 +18,22 @@ You now have two options for utilizing the head tracking data. Firstly, you can 
 
 Should you choose to use opentrack, you can do so by clicking on the 'start opentrack UDP' option. Within opentrack, you will need to select UDP over network in order to receive the data.
 
-![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/230802488-5203d2f3-403e-49b3-add3-fdfeb43947ca.png)
+![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/230751011-372f14ee-73e7-4336-94a8-7d525a08818a.png)
+
+Opentrack settings
+
+![Screenshot 2023-04-08 210432](https://user-images.githubusercontent.com/129109589/230751023-7cad672a-8384-430a-80d7-90aa4ea986ce.png)
+
+# Microsoft Flight Simulator working with opentrack
+
+https://user-images.githubusercontent.com/129109589/230751056-9ac0df97-939f-4e08-b3d2-690d606b58e5.mp4
 
 
 # Download Latest Release
 
-Phoenixheadtracker 2.0.0.1 https://github.com/iVideoGameBoss/PhoenixHeadTracker/releases
+Phoenixheadtracker https://github.com/iVideoGameBoss/PhoenixHeadTracker/releases
+
+Opentrack https://github.com/opentrack/opentrack/releases
 
 # How to build using Visual Studio 22
 PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the AirAPI_Windows.dll and hidapi.dll in the PhoenixHeadTracker/bin/x64/Debug/ folder. These two files are required in order to connect to Nreal Air glasses.
@@ -45,4 +53,3 @@ Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug folder. I
 
 
 https://user-images.githubusercontent.com/129109589/230140740-2248b626-169c-4f85-bb17-baec839264f3.mp4
-
