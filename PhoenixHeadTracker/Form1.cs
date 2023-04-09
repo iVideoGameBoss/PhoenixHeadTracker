@@ -2,15 +2,10 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-
 
 /*
  * PhoenixHeadTracker - A head-tracking application for controlling the mouse cursor for video games
@@ -168,17 +163,6 @@ namespace PhoenixHeadTracker
             input.inputUnion.mouseInput.time = 0; // Use the current system time
             input.inputUnion.mouseInput.dwExtraInfo = GetMessageExtraInfo(); // Set the extra information to 0
 
-            // Create a new UDP client to communicate with the OpenTrack server
-            udpClient = new UdpClient();
-
-            // Set the IP address and port number of the OpenTrack server
-            ipAddress = IPAddress.Parse("127.0.0.1"); // Use the loopback address for testing purposes, replace with actual IP address when deploying
-            port = 4242; // Use the default OpenTrack server port number
-
-            // Create a new IPEndPoint to store the IP address and port number of the OpenTrack server
-            endPoint = new IPEndPoint(ipAddress, port);
-
-
         }
 
 
@@ -214,6 +198,8 @@ namespace PhoenixHeadTracker
                 deltaX = xMapped - previousX;
                 deltaY = yMapped - previousY;
                 deltaRoll = rollMapped - previousRoll;
+
+
 
                 // Filter the degree changes for smoother rotation
                 double filteredDeltaX, filteredDeltaY, filteredDeltaRoll;
@@ -292,13 +278,20 @@ namespace PhoenixHeadTracker
                     if (checkBoxPitch.Checked == false) { pitch = 0; }
                     if (checkBoxRoll.Checked == false) { roll = 0; }
 
-                    // Pack the coordinates and orientation angles into a byte array for sending over the network
-                    byte[] data = new byte[6 * sizeof(double)];
-                    Buffer.BlockCopy(new double[] { x, y, z, yaw, pitch, roll }, 0, data, 0, data.Length);
 
-                    // Send the byte array over UDP to the specified endpoint
-                    udpClient.Send(data, data.Length, endPoint);
 
+                    // Create a new UDP client to communicate with the OpenTrack server
+
+                    using (UdpClient udpClient = new UdpClient())
+                    {
+                        // Pack the coordinates and orientation angles into a byte array for sending over the network
+                        byte[] data = new byte[6 * sizeof(double)];
+                        Buffer.BlockCopy(new double[] { x, y, z, yaw, pitch, roll }, 0, data, 0, data.Length);
+                        // Send the byte array over UDP to the specified endpoint
+                        udpClient.Send(data, data.Length, endPoint);
+                        // Close the udpClient to release any resources it's using
+                    }
+                    
                     // Update the log textbox with the byte array length (for debugging)
                     //textBoxLog1.Text = string.Format("{0}\r\n", 6 * sizeof(double));
                 }
@@ -503,6 +496,11 @@ namespace PhoenixHeadTracker
             trackBarPitchSpeed.Enabled = false;   // Disable pitch speed adjustment
             trackBarRollSpeed.Enabled = false;    // Disable roll speed adjustment
             ResetValues();                        // Reset any other necessary values
+            ipAddress = IPAddress.Parse(textBoxIPAddress.Text); // Use the loopback address for testing purposes, replace with actual IP address when deploying
+            port = int.Parse(textBoxPort.Text); // Use the default OpenTrack server port number
+
+            // Create a new IPEndPoint to store the IP address and port number of the OpenTrack server
+            endPoint = new IPEndPoint(ipAddress, port);
         }
 
         private void buttonStopOpentrack_Click(object sender, EventArgs e)

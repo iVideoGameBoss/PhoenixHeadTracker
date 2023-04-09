@@ -60,16 +60,19 @@
             this.label8 = new System.Windows.Forms.Label();
             this.labelYawSpeed = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelPitchSpeed = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.labelRollSpeed = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.trackBarDrift = new System.Windows.Forms.TrackBar();
             this.labelDriftFilter = new System.Windows.Forms.Label();
@@ -94,23 +97,20 @@
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.textBoxIPAddress = new System.Windows.Forms.TextBox();
             this.groupBoxMouseTrack = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRollSpeed)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDrift)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseSmooth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseDelay)).BeginInit();
             this.groupBoxOpentrack.SuspendLayout();
             this.groupBoxMouseTrack.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -428,6 +428,18 @@
             this.label5.TabIndex = 32;
             this.label5.Text = "Screen Width";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::PhoenixHeadTracker.Properties.Resources.imageYaw;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label12);
@@ -483,6 +495,18 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "Screen Height";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::PhoenixHeadTracker.Properties.Resources.imagePitch;
+            this.pictureBox2.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label13);
@@ -537,6 +561,18 @@
             this.label7.Size = new System.Drawing.Size(72, 13);
             this.label7.TabIndex = 33;
             this.label7.Text = "Screen Width";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Image = global::PhoenixHeadTracker.Properties.Resources.imageRoll;
+            this.pictureBox3.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 25;
+            this.pictureBox3.TabStop = false;
             // 
             // timer2
             // 
@@ -789,42 +825,6 @@
             this.groupBoxMouseTrack.TabStop = false;
             this.groupBoxMouseTrack.Text = "Mouse Track";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = global::PhoenixHeadTracker.Properties.Resources.imageRoll;
-            this.pictureBox3.Location = new System.Drawing.Point(10, 98);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 25;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::PhoenixHeadTracker.Properties.Resources.imagePitch;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 98);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::PhoenixHeadTracker.Properties.Resources.imageYaw;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 98);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(869, 609);
@@ -846,17 +846,20 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.0.0";
+            this.Text = "PhoenixHeadTracker 3.0.1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRollSpeed)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDrift)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseSmooth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseDelay)).EndInit();
@@ -864,9 +867,6 @@
             this.groupBoxOpentrack.PerformLayout();
             this.groupBoxMouseTrack.ResumeLayout(false);
             this.groupBoxMouseTrack.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
