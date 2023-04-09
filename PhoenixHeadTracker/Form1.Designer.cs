@@ -44,14 +44,11 @@
             this.buttonMouseTrackOn = new System.Windows.Forms.Button();
             this.buttonMouseTrackOff = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.textBoxLog = new System.Windows.Forms.TextBox();
+            this.textBoxLog1 = new System.Windows.Forms.TextBox();
             this.tb_YawTrackValue = new System.Windows.Forms.TextBox();
             this.tb_PitchTrackValue = new System.Windows.Forms.TextBox();
             this.labelRawRoll = new System.Windows.Forms.Label();
             this.labelMatchRoll = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBarRollSpeed = new System.Windows.Forms.TrackBar();
             this.tb_RollTrackValue = new System.Windows.Forms.TextBox();
             this.buttonReset = new System.Windows.Forms.Button();
@@ -59,12 +56,18 @@
             this.labelPitchRotation = new System.Windows.Forms.Label();
             this.labelRollRotation = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.labelYawSpeed = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.labelPitchSpeed = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.labelRollSpeed = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -76,11 +79,26 @@
             this.trackBarMouseDelay = new System.Windows.Forms.TrackBar();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.buttonStartOpentrack = new System.Windows.Forms.Button();
+            this.checkBoxYaw = new System.Windows.Forms.CheckBox();
+            this.checkBoxPitch = new System.Windows.Forms.CheckBox();
+            this.checkBoxRoll = new System.Windows.Forms.CheckBox();
+            this.groupBoxOpentrack = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.checkBoxInvertRoll = new System.Windows.Forms.CheckBox();
+            this.checkBoxInvertPitch = new System.Windows.Forms.CheckBox();
+            this.checkBoxInvertYaw = new System.Windows.Forms.CheckBox();
+            this.buttonStopOpentrack = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.textBoxIPAddress = new System.Windows.Forms.TextBox();
+            this.groupBoxMouseTrack = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRollSpeed)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,6 +106,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDrift)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseSmooth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseDelay)).BeginInit();
+            this.groupBoxOpentrack.SuspendLayout();
+            this.groupBoxMouseTrack.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -112,21 +135,22 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // textBoxMouseLocation
             // 
             this.textBoxMouseLocation.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxMouseLocation.Location = new System.Drawing.Point(633, 22);
+            this.textBoxMouseLocation.Location = new System.Drawing.Point(232, 579);
             this.textBoxMouseLocation.Name = "textBoxMouseLocation";
             this.textBoxMouseLocation.ReadOnly = true;
-            this.textBoxMouseLocation.Size = new System.Drawing.Size(203, 20);
+            this.textBoxMouseLocation.Size = new System.Drawing.Size(221, 20);
             this.textBoxMouseLocation.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(504, 29);
+            this.label4.Location = new System.Drawing.Point(106, 582);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 13);
             this.label4.TabIndex = 9;
@@ -158,14 +182,14 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label3.Location = new System.Drawing.Point(12, 53);
+            this.label3.Location = new System.Drawing.Point(12, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(824, 61);
+            this.label3.Size = new System.Drawing.Size(668, 40);
             this.label3.TabIndex = 14;
             this.label3.Text = "Wait 5+ seconds for sensors to adjust after connection. Roll data is not used for" +
-    " mouse track.";
+    " mouse track and Opentrack UDP.";
             // 
             // labelMatchYaw
             // 
@@ -210,10 +234,9 @@
             // 
             // buttonMouseTrackOn
             // 
-            this.buttonMouseTrackOn.Enabled = false;
-            this.buttonMouseTrackOn.Location = new System.Drawing.Point(686, 434);
+            this.buttonMouseTrackOn.Location = new System.Drawing.Point(9, 162);
             this.buttonMouseTrackOn.Name = "buttonMouseTrackOn";
-            this.buttonMouseTrackOn.Size = new System.Drawing.Size(150, 49);
+            this.buttonMouseTrackOn.Size = new System.Drawing.Size(150, 32);
             this.buttonMouseTrackOn.TabIndex = 19;
             this.buttonMouseTrackOn.Text = "Start Mouse Track";
             this.buttonMouseTrackOn.UseVisualStyleBackColor = true;
@@ -222,9 +245,9 @@
             // buttonMouseTrackOff
             // 
             this.buttonMouseTrackOff.Enabled = false;
-            this.buttonMouseTrackOff.Location = new System.Drawing.Point(686, 498);
+            this.buttonMouseTrackOff.Location = new System.Drawing.Point(7, 200);
             this.buttonMouseTrackOff.Name = "buttonMouseTrackOff";
-            this.buttonMouseTrackOff.Size = new System.Drawing.Size(150, 45);
+            this.buttonMouseTrackOff.Size = new System.Drawing.Size(150, 32);
             this.buttonMouseTrackOff.TabIndex = 20;
             this.buttonMouseTrackOff.Text = "Stop Mouse Track";
             this.buttonMouseTrackOff.UseVisualStyleBackColor = true;
@@ -233,7 +256,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(710, 559);
+            this.linkLabel1.Location = new System.Drawing.Point(726, 580);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(108, 13);
             this.linkLabel1.TabIndex = 21;
@@ -241,15 +264,16 @@
             this.linkLabel1.Text = "PhoenixHeadTracker";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // textBoxLog
+            // textBoxLog1
             // 
-            this.textBoxLog.Location = new System.Drawing.Point(222, 12);
-            this.textBoxLog.Multiline = true;
-            this.textBoxLog.Name = "textBoxLog";
-            this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(266, 33);
-            this.textBoxLog.TabIndex = 22;
-            this.textBoxLog.Visible = false;
+            this.textBoxLog1.Location = new System.Drawing.Point(232, 12);
+            this.textBoxLog1.Multiline = true;
+            this.textBoxLog1.Name = "textBoxLog1";
+            this.textBoxLog1.ReadOnly = true;
+            this.textBoxLog1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLog1.Size = new System.Drawing.Size(270, 26);
+            this.textBoxLog1.TabIndex = 22;
+            this.textBoxLog1.Visible = false;
             // 
             // tb_YawTrackValue
             // 
@@ -290,42 +314,6 @@
             this.labelMatchRoll.Text = "Track Roll:";
             this.labelMatchRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = global::PhoenixHeadTracker.Properties.Resources.imageRoll;
-            this.pictureBox3.Location = new System.Drawing.Point(10, 98);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 25;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::PhoenixHeadTracker.Properties.Resources.imageYaw;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 98);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::PhoenixHeadTracker.Properties.Resources.image;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 98);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // trackBarRollSpeed
             // 
             this.trackBarRollSpeed.Enabled = false;
@@ -350,9 +338,9 @@
             // buttonReset
             // 
             this.buttonReset.Enabled = false;
-            this.buttonReset.Location = new System.Drawing.Point(686, 107);
+            this.buttonReset.Location = new System.Drawing.Point(530, 12);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(150, 55);
+            this.buttonReset.Size = new System.Drawing.Size(150, 38);
             this.buttonReset.TabIndex = 30;
             this.buttonReset.Text = "Reset Rotation";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -387,6 +375,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.labelYawSpeed);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.trackBarYawSpeed);
@@ -397,10 +387,28 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(5, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(221, 449);
+            this.groupBox1.Size = new System.Drawing.Size(221, 466);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yaw";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(171, 446);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(39, 13);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Slower";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 446);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Faster";
             // 
             // labelYawSpeed
             // 
@@ -422,6 +430,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.labelPitchSpeed);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.trackBarPitchSpeed);
@@ -432,10 +442,28 @@
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Location = new System.Drawing.Point(232, 100);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(221, 449);
+            this.groupBox2.Size = new System.Drawing.Size(221, 466);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pitch";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(171, 446);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "Slower";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 446);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Faster";
             // 
             // labelPitchSpeed
             // 
@@ -457,6 +485,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.labelRollSpeed);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.labelMatchRoll);
@@ -467,10 +497,28 @@
             this.groupBox3.Controls.Add(this.pictureBox3);
             this.groupBox3.Location = new System.Drawing.Point(459, 100);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(221, 449);
+            this.groupBox3.Size = new System.Drawing.Size(221, 466);
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Roll";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(171, 446);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Slower";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 446);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Faster";
             // 
             // labelRollSpeed
             // 
@@ -492,23 +540,25 @@
             // 
             // timer2
             // 
+            this.timer2.Interval = 1;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // trackBarDrift
             // 
             this.trackBarDrift.Enabled = false;
-            this.trackBarDrift.Location = new System.Drawing.Point(687, 216);
-            this.trackBarDrift.Maximum = 20;
+            this.trackBarDrift.Location = new System.Drawing.Point(689, 25);
+            this.trackBarDrift.Maximum = 40;
             this.trackBarDrift.Minimum = 1;
             this.trackBarDrift.Name = "trackBarDrift";
-            this.trackBarDrift.Size = new System.Drawing.Size(149, 45);
+            this.trackBarDrift.Size = new System.Drawing.Size(168, 45);
             this.trackBarDrift.TabIndex = 37;
             this.trackBarDrift.Value = 10;
             // 
             // labelDriftFilter
             // 
             this.labelDriftFilter.AutoSize = true;
-            this.labelDriftFilter.Location = new System.Drawing.Point(687, 197);
+            this.labelDriftFilter.Enabled = false;
+            this.labelDriftFilter.Location = new System.Drawing.Point(690, 9);
             this.labelDriftFilter.Name = "labelDriftFilter";
             this.labelDriftFilter.Size = new System.Drawing.Size(57, 13);
             this.labelDriftFilter.TabIndex = 38;
@@ -517,7 +567,7 @@
             // labelMouseSmoothFilter
             // 
             this.labelMouseSmoothFilter.AutoSize = true;
-            this.labelMouseSmoothFilter.Location = new System.Drawing.Point(690, 268);
+            this.labelMouseSmoothFilter.Location = new System.Drawing.Point(9, 25);
             this.labelMouseSmoothFilter.Name = "labelMouseSmoothFilter";
             this.labelMouseSmoothFilter.Size = new System.Drawing.Size(109, 13);
             this.labelMouseSmoothFilter.TabIndex = 40;
@@ -525,8 +575,7 @@
             // 
             // trackBarMouseSmooth
             // 
-            this.trackBarMouseSmooth.Enabled = false;
-            this.trackBarMouseSmooth.Location = new System.Drawing.Point(690, 287);
+            this.trackBarMouseSmooth.Location = new System.Drawing.Point(9, 44);
             this.trackBarMouseSmooth.Maximum = 20;
             this.trackBarMouseSmooth.Minimum = 1;
             this.trackBarMouseSmooth.Name = "trackBarMouseSmooth";
@@ -537,7 +586,7 @@
             // labelMouseDelayFilter
             // 
             this.labelMouseDelayFilter.AutoSize = true;
-            this.labelMouseDelayFilter.Location = new System.Drawing.Point(690, 334);
+            this.labelMouseDelayFilter.Location = new System.Drawing.Point(9, 92);
             this.labelMouseDelayFilter.Name = "labelMouseDelayFilter";
             this.labelMouseDelayFilter.Size = new System.Drawing.Size(100, 13);
             this.labelMouseDelayFilter.TabIndex = 42;
@@ -545,10 +594,8 @@
             // 
             // trackBarMouseDelay
             // 
-            this.trackBarMouseDelay.Enabled = false;
-            this.trackBarMouseDelay.Location = new System.Drawing.Point(690, 353);
+            this.trackBarMouseDelay.Location = new System.Drawing.Point(9, 110);
             this.trackBarMouseDelay.Maximum = 20;
-            this.trackBarMouseDelay.Minimum = 1;
             this.trackBarMouseDelay.Name = "trackBarMouseDelay";
             this.trackBarMouseDelay.Size = new System.Drawing.Size(149, 45);
             this.trackBarMouseDelay.TabIndex = 41;
@@ -557,7 +604,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(570, 559);
+            this.linkLabel2.Location = new System.Drawing.Point(586, 580);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(134, 13);
             this.linkLabel2.TabIndex = 43;
@@ -568,46 +615,241 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(16, 561);
+            this.linkLabel3.Location = new System.Drawing.Point(9, 582);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(45, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(93, 13);
             this.linkLabel3.TabIndex = 44;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Donate!";
+            this.linkLabel3.Text = "Steam Deck Fund";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // buttonStartOpentrack
+            // 
+            this.buttonStartOpentrack.Location = new System.Drawing.Point(8, 19);
+            this.buttonStartOpentrack.Name = "buttonStartOpentrack";
+            this.buttonStartOpentrack.Size = new System.Drawing.Size(150, 32);
+            this.buttonStartOpentrack.TabIndex = 46;
+            this.buttonStartOpentrack.Text = "Start Opentrack UDP";
+            this.buttonStartOpentrack.UseVisualStyleBackColor = true;
+            this.buttonStartOpentrack.Click += new System.EventHandler(this.buttonStartOpentrack_Click);
+            // 
+            // checkBoxYaw
+            // 
+            this.checkBoxYaw.AutoSize = true;
+            this.checkBoxYaw.Checked = true;
+            this.checkBoxYaw.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxYaw.Location = new System.Drawing.Point(12, 165);
+            this.checkBoxYaw.Name = "checkBoxYaw";
+            this.checkBoxYaw.Size = new System.Drawing.Size(101, 17);
+            this.checkBoxYaw.TabIndex = 47;
+            this.checkBoxYaw.Text = "Send Yaw Data";
+            this.checkBoxYaw.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPitch
+            // 
+            this.checkBoxPitch.AutoSize = true;
+            this.checkBoxPitch.Checked = true;
+            this.checkBoxPitch.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPitch.Location = new System.Drawing.Point(12, 188);
+            this.checkBoxPitch.Name = "checkBoxPitch";
+            this.checkBoxPitch.Size = new System.Drawing.Size(104, 17);
+            this.checkBoxPitch.TabIndex = 48;
+            this.checkBoxPitch.Text = "Send Pitch Data";
+            this.checkBoxPitch.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxRoll
+            // 
+            this.checkBoxRoll.AutoSize = true;
+            this.checkBoxRoll.Location = new System.Drawing.Point(12, 211);
+            this.checkBoxRoll.Name = "checkBoxRoll";
+            this.checkBoxRoll.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxRoll.TabIndex = 49;
+            this.checkBoxRoll.Text = "Send Roll Data";
+            this.checkBoxRoll.UseVisualStyleBackColor = true;
+            this.checkBoxRoll.Visible = false;
+            // 
+            // groupBoxOpentrack
+            // 
+            this.groupBoxOpentrack.Controls.Add(this.label16);
+            this.groupBoxOpentrack.Controls.Add(this.checkBoxInvertRoll);
+            this.groupBoxOpentrack.Controls.Add(this.checkBoxInvertPitch);
+            this.groupBoxOpentrack.Controls.Add(this.checkBoxInvertYaw);
+            this.groupBoxOpentrack.Controls.Add(this.buttonStopOpentrack);
+            this.groupBoxOpentrack.Controls.Add(this.label15);
+            this.groupBoxOpentrack.Controls.Add(this.label14);
+            this.groupBoxOpentrack.Controls.Add(this.textBoxPort);
+            this.groupBoxOpentrack.Controls.Add(this.textBoxIPAddress);
+            this.groupBoxOpentrack.Controls.Add(this.buttonStartOpentrack);
+            this.groupBoxOpentrack.Controls.Add(this.checkBoxRoll);
+            this.groupBoxOpentrack.Controls.Add(this.checkBoxYaw);
+            this.groupBoxOpentrack.Controls.Add(this.checkBoxPitch);
+            this.groupBoxOpentrack.Enabled = false;
+            this.groupBoxOpentrack.Location = new System.Drawing.Point(689, 82);
+            this.groupBoxOpentrack.Name = "groupBoxOpentrack";
+            this.groupBoxOpentrack.Size = new System.Drawing.Size(168, 237);
+            this.groupBoxOpentrack.TabIndex = 50;
+            this.groupBoxOpentrack.TabStop = false;
+            this.groupBoxOpentrack.Text = "Opentrack UDP";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(125, 149);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(34, 13);
+            this.label16.TabIndex = 58;
+            this.label16.Text = "Invert";
+            // 
+            // checkBoxInvertRoll
+            // 
+            this.checkBoxInvertRoll.AutoSize = true;
+            this.checkBoxInvertRoll.Location = new System.Drawing.Point(128, 211);
+            this.checkBoxInvertRoll.Name = "checkBoxInvertRoll";
+            this.checkBoxInvertRoll.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInvertRoll.TabIndex = 57;
+            this.checkBoxInvertRoll.UseVisualStyleBackColor = true;
+            this.checkBoxInvertRoll.Visible = false;
+            // 
+            // checkBoxInvertPitch
+            // 
+            this.checkBoxInvertPitch.AutoSize = true;
+            this.checkBoxInvertPitch.Location = new System.Drawing.Point(128, 188);
+            this.checkBoxInvertPitch.Name = "checkBoxInvertPitch";
+            this.checkBoxInvertPitch.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInvertPitch.TabIndex = 56;
+            this.checkBoxInvertPitch.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxInvertYaw
+            // 
+            this.checkBoxInvertYaw.AutoSize = true;
+            this.checkBoxInvertYaw.Location = new System.Drawing.Point(128, 165);
+            this.checkBoxInvertYaw.Name = "checkBoxInvertYaw";
+            this.checkBoxInvertYaw.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInvertYaw.TabIndex = 55;
+            this.checkBoxInvertYaw.UseVisualStyleBackColor = true;
+            // 
+            // buttonStopOpentrack
+            // 
+            this.buttonStopOpentrack.Enabled = false;
+            this.buttonStopOpentrack.Location = new System.Drawing.Point(8, 57);
+            this.buttonStopOpentrack.Name = "buttonStopOpentrack";
+            this.buttonStopOpentrack.Size = new System.Drawing.Size(150, 32);
+            this.buttonStopOpentrack.TabIndex = 54;
+            this.buttonStopOpentrack.Text = "Stop Opentrack UDP";
+            this.buttonStopOpentrack.UseVisualStyleBackColor = true;
+            this.buttonStopOpentrack.Click += new System.EventHandler(this.buttonStopOpentrack_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 125);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 53;
+            this.label15.Text = "Port:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(18, 102);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 13);
+            this.label14.TabIndex = 52;
+            this.label14.Text = "IP:";
+            // 
+            // textBoxPort
+            // 
+            this.textBoxPort.Location = new System.Drawing.Point(44, 121);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(114, 20);
+            this.textBoxPort.TabIndex = 51;
+            this.textBoxPort.Text = "4242";
+            // 
+            // textBoxIPAddress
+            // 
+            this.textBoxIPAddress.Location = new System.Drawing.Point(44, 95);
+            this.textBoxIPAddress.Name = "textBoxIPAddress";
+            this.textBoxIPAddress.Size = new System.Drawing.Size(114, 20);
+            this.textBoxIPAddress.TabIndex = 50;
+            this.textBoxIPAddress.Text = "127.0.0.1";
+            // 
+            // groupBoxMouseTrack
+            // 
+            this.groupBoxMouseTrack.Controls.Add(this.buttonMouseTrackOff);
+            this.groupBoxMouseTrack.Controls.Add(this.buttonMouseTrackOn);
+            this.groupBoxMouseTrack.Controls.Add(this.labelMouseDelayFilter);
+            this.groupBoxMouseTrack.Controls.Add(this.trackBarMouseSmooth);
+            this.groupBoxMouseTrack.Controls.Add(this.trackBarMouseDelay);
+            this.groupBoxMouseTrack.Controls.Add(this.labelMouseSmoothFilter);
+            this.groupBoxMouseTrack.Enabled = false;
+            this.groupBoxMouseTrack.Location = new System.Drawing.Point(689, 325);
+            this.groupBoxMouseTrack.Name = "groupBoxMouseTrack";
+            this.groupBoxMouseTrack.Size = new System.Drawing.Size(168, 241);
+            this.groupBoxMouseTrack.TabIndex = 51;
+            this.groupBoxMouseTrack.TabStop = false;
+            this.groupBoxMouseTrack.Text = "Mouse Track";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Image = global::PhoenixHeadTracker.Properties.Resources.imageRoll;
+            this.pictureBox3.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 25;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::PhoenixHeadTracker.Properties.Resources.imagePitch;
+            this.pictureBox2.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::PhoenixHeadTracker.Properties.Resources.imageYaw;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(848, 583);
+            this.ClientSize = new System.Drawing.Size(869, 609);
+            this.Controls.Add(this.groupBoxMouseTrack);
+            this.Controls.Add(this.groupBoxOpentrack);
+            this.Controls.Add(this.trackBarDrift);
+            this.Controls.Add(this.labelDriftFilter);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.labelMouseDelayFilter);
-            this.Controls.Add(this.trackBarMouseDelay);
-            this.Controls.Add(this.labelMouseSmoothFilter);
-            this.Controls.Add(this.trackBarMouseSmooth);
-            this.Controls.Add(this.labelDriftFilter);
-            this.Controls.Add(this.trackBarDrift);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonReset);
-            this.Controls.Add(this.textBoxLog);
+            this.Controls.Add(this.textBoxLog1);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.buttonMouseTrackOff);
-            this.Controls.Add(this.buttonMouseTrackOn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxMouseLocation);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 2.0.0.0";
+            this.Text = "PhoenixHeadTracker 3.0.0.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRollSpeed)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -618,6 +860,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDrift)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseSmooth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseDelay)).EndInit();
+            this.groupBoxOpentrack.ResumeLayout(false);
+            this.groupBoxOpentrack.PerformLayout();
+            this.groupBoxMouseTrack.ResumeLayout(false);
+            this.groupBoxMouseTrack.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,7 +893,7 @@
         private System.Windows.Forms.Button buttonMouseTrackOn;
         private System.Windows.Forms.Button buttonMouseTrackOff;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TextBox textBoxLog;
+        private System.Windows.Forms.TextBox textBoxLog1;
         private System.Windows.Forms.TextBox tb_YawTrackValue;
         private System.Windows.Forms.TextBox tb_PitchTrackValue;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -674,6 +923,27 @@
         private System.Windows.Forms.TrackBar trackBarMouseDelay;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button buttonStartOpentrack;
+        private System.Windows.Forms.CheckBox checkBoxYaw;
+        private System.Windows.Forms.CheckBox checkBoxPitch;
+        private System.Windows.Forms.CheckBox checkBoxRoll;
+        private System.Windows.Forms.GroupBox groupBoxOpentrack;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxPort;
+        private System.Windows.Forms.TextBox textBoxIPAddress;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonStopOpentrack;
+        private System.Windows.Forms.GroupBox groupBoxMouseTrack;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox checkBoxInvertRoll;
+        private System.Windows.Forms.CheckBox checkBoxInvertPitch;
+        private System.Windows.Forms.CheckBox checkBoxInvertYaw;
     }
 }
 

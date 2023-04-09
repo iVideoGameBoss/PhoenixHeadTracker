@@ -73,6 +73,16 @@ namespace PhoenixHeadTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imagePitch {
+            get {
+                object obj = ResourceManager.GetObject("imagePitch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imageRoll {
             get {
                 object obj = ResourceManager.GetObject("imageRoll", resourceCulture);
@@ -86,6 +96,16 @@ namespace PhoenixHeadTracker.Properties {
         internal static System.Drawing.Bitmap imageYaw {
             get {
                 object obj = ResourceManager.GetObject("imageYaw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageYaw1 {
+            get {
+                object obj = ResourceManager.GetObject("imageYaw1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
