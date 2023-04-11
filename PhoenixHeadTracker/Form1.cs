@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 using System.Net;
 using System.Net.Sockets;
+using System.Data;
 
 /*
  * PhoenixHeadTracker - A head-tracking application for controlling the mouse cursor for video games
@@ -113,6 +114,9 @@ namespace PhoenixHeadTracker
         private double rotDistanceYaw = 0.0;
         private double rotDistancePitch = 0.0;
         private double rollDistanceRoll = 0.0;
+        private double rotStartYaw = 0.0;
+        private double rotStartPitch = 0.0;
+        private double rotStartRoll = 0.0;
 
         // These constants are used to identify Windows messages and mouse events
         private const int WM_INPUT = 0x00FF;
@@ -120,9 +124,9 @@ namespace PhoenixHeadTracker
 
         // These variables hold screen dimensions
         private int screenWidth = 1920;
-        private int screenHeight = 1080;
-        private int screenWidthScale = 1920;//3840
-        private int screenHeightScale = 1080;//2160
+        private int screenWidthScale = 1920;
+        private int screenHeightScale = 1920;
+        private int screenRollScale = 1920;
 
         // These variables hold mouse position and roll
         private double x = 0;
@@ -136,24 +140,40 @@ namespace PhoenixHeadTracker
         private IntPtr hWnd;
 
         // These variables are used for network communication
-        private UdpClient udpClient;
         private IPAddress ipAddress;
         private IPEndPoint endPoint;
         private int port;
 
-        // These variables hold pointers and arrays for image manipulation
+        // These variables are for euler in degress
         private IntPtr ptr;
         private float[] arr;
 
+        // These variables are to help fight drift, to be used with opentrack
+        private int FightDriftX=0;
+        private int FightDriftY = 0;
+        private int FightDriftRoll = 0;
+
+        double t = 0.01; // process noise variance
+        double r = 0.002; // measurement noise variance
+        double p = 0.0; // initial estimate error covariance
+        KalmanFilter filterx; 
+        double filteredValuex;
+        KalmanFilter filtery; 
+        double filteredValuey;
+        KalmanFilter filterr; 
+        double filteredValuer;
         private void Form1_Load(object sender, EventArgs e)
         {
             // Get the screen dimensions
             screenWidth = Screen.PrimaryScreen.Bounds.Width; // Gets the width of the primary screen
-            screenHeight = Screen.PrimaryScreen.Bounds.Height; // Gets the height of the primary screen
 
             // Set the initial scaling factors to be equal to the screen size
             screenWidthScale = screenWidth;
-            screenHeightScale = screenHeight;
+            screenHeightScale = screenWidth;
+            screenRollScale = screenWidth;
+            textBoxYawTrackValue.Text= screenWidthScale.ToString();
+            textBoxPitchTrackValue.Text= screenHeightScale.ToString();
+            textBoxRollTrackValue.Text= screenRollScale.ToString();
 
             // Create a new instance of the INPUT struct to simulate mouse input
             input = new INPUT();
@@ -165,8 +185,6 @@ namespace PhoenixHeadTracker
 
         }
 
-
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             // Get the Euler angles from an external library and store them in an array
@@ -176,10 +194,12 @@ namespace PhoenixHeadTracker
             // Copy the values from the pointer into the array
             Marshal.Copy(ptr, arr, 0, 3);
 
+
+
             // Calculate the x, y, and roll values based on screen size and user-defined speeds
-            x = (arr[2] * (screenWidth * screenWidthScale) / trackBarYawSpeed.Value);
-            y = (arr[1] * (screenHeight * screenHeightScale) / trackBarPitchSpeed.Value);
-            roll = (arr[0] * (screenHeight * screenHeightScale) / trackBarRollSpeed.Value);
+            x = (arr[2] * (screenWidthScale * screenWidthScale) / trackBarYawSpeed.Value);
+            y = (arr[1] * (screenHeightScale * screenHeightScale) / trackBarPitchSpeed.Value);
+            roll = (arr[0] * (screenRollScale * screenRollScale) / trackBarRollSpeed.Value);
 
             // Map the calculated values to the xMapped, yMapped, and rollMapped variables
             xMapped = x;
@@ -198,8 +218,6 @@ namespace PhoenixHeadTracker
                 deltaX = xMapped - previousX;
                 deltaY = yMapped - previousY;
                 deltaRoll = rollMapped - previousRoll;
-
-
 
                 // Filter the degree changes for smoother rotation
                 double filteredDeltaX, filteredDeltaY, filteredDeltaRoll;
@@ -237,13 +255,13 @@ namespace PhoenixHeadTracker
                 if (isOpenTrack == true)
                 {
                     // Update x, y, and roll rotation distances based on the previous values
-                    double tempX = xRot - arr[2];
+                    double tempX = (xRot - arr[2]);
                     xRot += rotDistanceYaw - tempX;
 
-                    double tempY = yRot - arr[1];
-                    yRot += rotDistancePitch - tempY;
+                    double tempY = (yRot - arr[1]);
+                    yRot += rotDistancePitch - tempY ;
 
-                    double tempRoll = rollRot - arr[0];
+                    double tempRoll = (rollRot - arr[0])  ;
                     rollRot += rollDistanceRoll - tempRoll;
 
                     // Filter the rotation data to smooth out noise and improve accuracy
@@ -255,19 +273,39 @@ namespace PhoenixHeadTracker
                     double x = 0;
                     double y = 0;
                     double z = 0;
-                    double yaw = filteredRotX * 90;
-                    double pitch = filteredRotY * 90;
-                    double roll = filteredRotRoll * 45;
+                    double yaw = filteredRotX * 90 ;
+                    double pitch = filteredRotY * 90 ;
+                    double roll = filteredRotRoll * 45 ;
+
+
+                    // Adjust the orientation angles based on the rotation distances and inversion settings
+                    yaw -= rotDistanceYaw - (xRot - arr[2]) - FightDriftX;
+                    pitch -= rotDistancePitch - (yRot - arr[1]) - FightDriftY; 
+                    roll -= rollDistanceRoll - (rollRot - arr[0]) - FightDriftRoll;
+
+                    // Instantiate Kalman filter 
+                    // t process noise variance
+                    // r measurement noise variance
+                    // p initial estimate error covariance
+                    // yaw,pitch,raw initial state estimate
+                    filterx = new KalmanFilter(t, r, p, yaw);
+                    filteredValuex = filterx.Update(yaw);
+                    filtery = new KalmanFilter(t, r, p, pitch);
+                    filteredValuey = filtery.Update(pitch);
+                    filterr = new KalmanFilter(t, r, p, roll);
+                    filteredValuer = filterr.Update(roll);
+
+                    textBoxLog1.Text = string.Format("measurement{0}\r\nmeasurement{1}\r\n", filteredValuex, arr[2]);
+                    yaw = filteredValuex;
+                    pitch = filteredValuey;
+                    roll = filteredValuer;
+                    // Update the log textbox(for debugging)
+                    //textBoxLog1.Text = string.Format("{0}\r\n", rotDistanceYaw - rotStartYaw);
 
                     // Update the UI labels with the orientation angles
                     labelMatchYaw.Text = string.Format("Track Yaw {0:0.00}", yaw);
                     labelMatchPitch.Text = string.Format("Track Pitch {0:0.00}", pitch);
-                    labelMatchRoll.Text = string.Format("Track Roll {0:0.00}", roll);
-
-                    // Adjust the orientation angles based on the rotation distances and inversion settings
-                    yaw -= rotDistanceYaw - tempX;
-                    pitch -= rotDistancePitch - tempY;
-                    roll -= rollDistanceRoll - tempRoll;
+                    labelMatchRoll.Text = string.Format("Track Roll {0:0.00}", roll);                    
 
                     if (checkBoxInvertYaw.Checked == true) yaw = -yaw;
                     if (checkBoxInvertPitch.Checked == true) pitch = -pitch;
@@ -277,7 +315,6 @@ namespace PhoenixHeadTracker
                     if (checkBoxYaw.Checked == false) { yaw = 0; }
                     if (checkBoxPitch.Checked == false) { pitch = 0; }
                     if (checkBoxRoll.Checked == false) { roll = 0; }
-
 
 
                     // Create a new UDP client to communicate with the OpenTrack server
@@ -292,8 +329,6 @@ namespace PhoenixHeadTracker
                         // Close the udpClient to release any resources it's using
                     }
                     
-                    // Update the log textbox with the byte array length (for debugging)
-                    //textBoxLog1.Text = string.Format("{0}\r\n", 6 * sizeof(double));
                 }
 
 
@@ -327,11 +362,6 @@ namespace PhoenixHeadTracker
             }
 
 
-
-            // Set the text values of three trackbars to the width and height of the screen
-            tb_YawTrackValue.Text = screenWidth.ToString();
-            tb_PitchTrackValue.Text = screenHeight.ToString();
-            tb_RollTrackValue.Text = screenWidth.ToString();
 
             // Rotate the first image (Yaw)
             // Clear the graphics and set the rotation point to the center of the image
@@ -474,6 +504,9 @@ namespace PhoenixHeadTracker
             deltaX = 0;
             deltaY = 0;
             deltaRoll = 0;
+            rotStartYaw=arr[2];
+            rotStartPitch = arr[1];
+            rotStartRoll = arr[0];
 
             // Calculate distance between current and desired rotations
             rotDistanceYaw = xRot - arr[2]; // Distance in the yaw (horizontal) axis
@@ -495,12 +528,32 @@ namespace PhoenixHeadTracker
             trackBarYawSpeed.Enabled = false;     // Disable yaw speed adjustment
             trackBarPitchSpeed.Enabled = false;   // Disable pitch speed adjustment
             trackBarRollSpeed.Enabled = false;    // Disable roll speed adjustment
+
+            // Disable Drift buttons
+            labelFightDriftX.Enabled = true;      
+            labelFightDriftY.Enabled = true;
+            labelFightDriftRoll.Enabled = true;
+            buttonFightDriftXMinus.Enabled = true;
+            buttonFightDriftXPlus.Enabled = true;
+            buttonFightDriftYMinus.Enabled = true;
+            buttonFightDriftYPlus.Enabled = true;
+            buttonFightDriftRollMinus.Enabled = true;
+            buttonFightDriftRollPlus.Enabled = true;
+
+
             ResetValues();                        // Reset any other necessary values
             ipAddress = IPAddress.Parse(textBoxIPAddress.Text); // Use the loopback address for testing purposes, replace with actual IP address when deploying
             port = int.Parse(textBoxPort.Text); // Use the default OpenTrack server port number
 
             // Create a new IPEndPoint to store the IP address and port number of the OpenTrack server
             endPoint = new IPEndPoint(ipAddress, port);
+            screenWidthScale = int.Parse(textBoxYawTrackValue.Text);
+            screenHeightScale = int.Parse(textBoxPitchTrackValue.Text);
+            screenRollScale = int.Parse(textBoxRollTrackValue.Text);
+
+            textBoxYawTrackValue.Enabled = false;
+            textBoxPitchTrackValue.Enabled = false;
+            textBoxRollTrackValue.Enabled = false;
         }
 
         private void buttonStopOpentrack_Click(object sender, EventArgs e)
@@ -517,6 +570,20 @@ namespace PhoenixHeadTracker
             trackBarPitchSpeed.Enabled = true;  // Enable pitch speed track bar
             trackBarRollSpeed.Enabled = true;   // Enable roll speed track bar
 
+            // Enable Drift buttons
+            labelFightDriftX.Enabled = false;
+            labelFightDriftY.Enabled = false;
+            labelFightDriftRoll.Enabled = false;
+            buttonFightDriftXMinus.Enabled = false;
+            buttonFightDriftXPlus.Enabled = false;
+            buttonFightDriftYMinus.Enabled = false;
+            buttonFightDriftYPlus.Enabled = false;
+            buttonFightDriftRollMinus.Enabled = false;
+            buttonFightDriftRollPlus.Enabled = false;
+
+            textBoxYawTrackValue.Enabled = true;
+            textBoxPitchTrackValue.Enabled = true;
+            textBoxRollTrackValue.Enabled = true;
         }
         
         private void buttonReset_Click(object sender, EventArgs e)
@@ -606,6 +673,13 @@ namespace PhoenixHeadTracker
             trackBarRollSpeed.Enabled = false; // Disable control to adjust roll speed
             groupBoxOpentrack.Enabled = false; // Disable group box containing OpenTrack controls
 
+            screenWidthScale = int.Parse(textBoxYawTrackValue.Text);
+            screenHeightScale= int.Parse(textBoxPitchTrackValue.Text);
+            screenRollScale= int.Parse(textBoxRollTrackValue.Text);
+
+            textBoxYawTrackValue.Enabled = false;
+            textBoxPitchTrackValue.Enabled = false;
+            textBoxRollTrackValue.Enabled = false;
         }
 
         private void buttonMouseTrackOff_Click(object sender, EventArgs e)
@@ -618,6 +692,10 @@ namespace PhoenixHeadTracker
             trackBarPitchSpeed.Enabled = true;   // This enables the trackBarPitchSpeed slider
             trackBarRollSpeed.Enabled = true;    // This enables the trackBarRollSpeed slider
             groupBoxOpentrack.Enabled = true;    // This enables the groupBoxOpentrack group box
+
+            textBoxYawTrackValue.Enabled = true;
+            textBoxPitchTrackValue.Enabled = true;
+            textBoxRollTrackValue.Enabled = true;
         }
 
         public Form1()
@@ -708,6 +786,71 @@ namespace PhoenixHeadTracker
         {
             linkLabel1.LinkVisited = true;
             Process.Start("https://paypal.me/ivideogameboss?country.x=US&locale.x=en_US");
+        }
+
+        private void buttonFightDriftXPlus_Click(object sender, EventArgs e)
+        {
+            FightDriftX += 1;
+            labelFightDriftX.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftX.ToString());
+        }
+
+        private void buttonFightDriftXMinus_Click(object sender, EventArgs e)
+        {
+            FightDriftX -= 1;
+            labelFightDriftX.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftX.ToString());
+        }
+
+        private void buttonFightDriftYMinus_Click(object sender, EventArgs e)
+        {
+            FightDriftY -= 1;
+            labelFightDriftY.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftY.ToString());
+        }
+
+        private void buttonFightDriftYPlus_Click(object sender, EventArgs e)
+        {
+            FightDriftY += 1;
+            labelFightDriftY.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftY.ToString());
+        }
+
+        private void buttonFightDriftRollMinus_Click(object sender, EventArgs e)
+        {
+            FightDriftRoll -= 1;
+            labelFightDriftRoll.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftRoll.ToString());
+        }
+
+        private void buttonFightDriftRollPlus_Click(object sender, EventArgs e)
+        {
+            FightDriftRoll += 1;
+            labelFightDriftRoll.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftRoll.ToString());
+        }
+    }
+
+    public class KalmanFilter
+    {
+        private double _q;
+        private double _r;
+        private double _p;
+        private double _x;
+
+        public KalmanFilter(double q, double r, double p, double x)
+        {
+            _q = q;
+            _r = r;
+            _p = p;
+            _x = x;
+        }
+
+        public double Update(double measurement)
+        {
+            // Prediction update
+            _p += _q;
+
+            // Measurement update
+            double k = _p / (_p + _r);
+            _x += k * (measurement - _x);
+            _p *= (1 - k);
+
+            return _x;
         }
     }
 }

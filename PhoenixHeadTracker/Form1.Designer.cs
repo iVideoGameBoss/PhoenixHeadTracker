@@ -45,30 +45,39 @@
             this.buttonMouseTrackOff = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBoxLog1 = new System.Windows.Forms.TextBox();
-            this.tb_YawTrackValue = new System.Windows.Forms.TextBox();
-            this.tb_PitchTrackValue = new System.Windows.Forms.TextBox();
+            this.textBoxYawTrackValue = new System.Windows.Forms.TextBox();
+            this.textBoxPitchTrackValue = new System.Windows.Forms.TextBox();
             this.labelRawRoll = new System.Windows.Forms.Label();
             this.labelMatchRoll = new System.Windows.Forms.Label();
             this.trackBarRollSpeed = new System.Windows.Forms.TrackBar();
-            this.tb_RollTrackValue = new System.Windows.Forms.TextBox();
+            this.textBoxRollTrackValue = new System.Windows.Forms.TextBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.labelYawRotation = new System.Windows.Forms.Label();
             this.labelPitchRotation = new System.Windows.Forms.Label();
             this.labelRollRotation = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelFightDriftX = new System.Windows.Forms.Label();
+            this.buttonFightDriftXMinus = new System.Windows.Forms.Button();
+            this.buttonFightDriftXPlus = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.labelYawSpeed = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelFightDriftY = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.buttonFightDriftYMinus = new System.Windows.Forms.Button();
+            this.buttonFightDriftYPlus = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.labelPitchSpeed = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelFightDriftRoll = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.buttonFightDriftRollMinus = new System.Windows.Forms.Button();
+            this.buttonFightDriftRollPlus = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.labelRollSpeed = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -178,7 +187,7 @@
             this.trackBarPitchSpeed.Name = "trackBarPitchSpeed";
             this.trackBarPitchSpeed.Size = new System.Drawing.Size(200, 45);
             this.trackBarPitchSpeed.TabIndex = 13;
-            this.trackBarPitchSpeed.Value = 3240;
+            this.trackBarPitchSpeed.Value = 5760;
             // 
             // label3
             // 
@@ -195,7 +204,7 @@
             // 
             this.labelMatchYaw.AutoSize = true;
             this.labelMatchYaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMatchYaw.Location = new System.Drawing.Point(14, 62);
+            this.labelMatchYaw.Location = new System.Drawing.Point(16, 41);
             this.labelMatchYaw.Name = "labelMatchYaw";
             this.labelMatchYaw.Size = new System.Drawing.Size(120, 25);
             this.labelMatchYaw.TabIndex = 15;
@@ -205,7 +214,7 @@
             // 
             this.labelMatchPitch.AutoSize = true;
             this.labelMatchPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMatchPitch.Location = new System.Drawing.Point(14, 62);
+            this.labelMatchPitch.Location = new System.Drawing.Point(14, 41);
             this.labelMatchPitch.Name = "labelMatchPitch";
             this.labelMatchPitch.Size = new System.Drawing.Size(126, 25);
             this.labelMatchPitch.TabIndex = 16;
@@ -216,7 +225,7 @@
             // 
             this.labelRawYaw.AutoSize = true;
             this.labelRawYaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRawYaw.Location = new System.Drawing.Point(26, 37);
+            this.labelRawYaw.Location = new System.Drawing.Point(28, 16);
             this.labelRawYaw.Name = "labelRawYaw";
             this.labelRawYaw.Size = new System.Drawing.Size(108, 25);
             this.labelRawYaw.TabIndex = 17;
@@ -226,7 +235,7 @@
             // 
             this.labelRawPitch.AutoSize = true;
             this.labelRawPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRawPitch.Location = new System.Drawing.Point(26, 37);
+            this.labelRawPitch.Location = new System.Drawing.Point(26, 16);
             this.labelRawPitch.Name = "labelRawPitch";
             this.labelRawPitch.Size = new System.Drawing.Size(114, 25);
             this.labelRawPitch.TabIndex = 18;
@@ -275,29 +284,27 @@
             this.textBoxLog1.TabIndex = 22;
             this.textBoxLog1.Visible = false;
             // 
-            // tb_YawTrackValue
+            // textBoxYawTrackValue
             // 
-            this.tb_YawTrackValue.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tb_YawTrackValue.Location = new System.Drawing.Point(10, 334);
-            this.tb_YawTrackValue.Name = "tb_YawTrackValue";
-            this.tb_YawTrackValue.ReadOnly = true;
-            this.tb_YawTrackValue.Size = new System.Drawing.Size(200, 20);
-            this.tb_YawTrackValue.TabIndex = 23;
+            this.textBoxYawTrackValue.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxYawTrackValue.Location = new System.Drawing.Point(10, 334);
+            this.textBoxYawTrackValue.Name = "textBoxYawTrackValue";
+            this.textBoxYawTrackValue.Size = new System.Drawing.Size(200, 20);
+            this.textBoxYawTrackValue.TabIndex = 23;
             // 
-            // tb_PitchTrackValue
+            // textBoxPitchTrackValue
             // 
-            this.tb_PitchTrackValue.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tb_PitchTrackValue.Location = new System.Drawing.Point(10, 334);
-            this.tb_PitchTrackValue.Name = "tb_PitchTrackValue";
-            this.tb_PitchTrackValue.ReadOnly = true;
-            this.tb_PitchTrackValue.Size = new System.Drawing.Size(200, 20);
-            this.tb_PitchTrackValue.TabIndex = 24;
+            this.textBoxPitchTrackValue.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxPitchTrackValue.Location = new System.Drawing.Point(10, 334);
+            this.textBoxPitchTrackValue.Name = "textBoxPitchTrackValue";
+            this.textBoxPitchTrackValue.Size = new System.Drawing.Size(200, 20);
+            this.textBoxPitchTrackValue.TabIndex = 24;
             // 
             // labelRawRoll
             // 
             this.labelRawRoll.AutoSize = true;
             this.labelRawRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRawRoll.Location = new System.Drawing.Point(26, 37);
+            this.labelRawRoll.Location = new System.Drawing.Point(26, 16);
             this.labelRawRoll.Name = "labelRawRoll";
             this.labelRawRoll.Size = new System.Drawing.Size(103, 25);
             this.labelRawRoll.TabIndex = 27;
@@ -307,7 +314,7 @@
             // 
             this.labelMatchRoll.AutoSize = true;
             this.labelMatchRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMatchRoll.Location = new System.Drawing.Point(14, 62);
+            this.labelMatchRoll.Location = new System.Drawing.Point(14, 41);
             this.labelMatchRoll.Name = "labelMatchRoll";
             this.labelMatchRoll.Size = new System.Drawing.Size(115, 25);
             this.labelMatchRoll.TabIndex = 26;
@@ -326,14 +333,13 @@
             this.trackBarRollSpeed.TabIndex = 28;
             this.trackBarRollSpeed.Value = 5760;
             // 
-            // tb_RollTrackValue
+            // textBoxRollTrackValue
             // 
-            this.tb_RollTrackValue.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tb_RollTrackValue.Location = new System.Drawing.Point(10, 334);
-            this.tb_RollTrackValue.Name = "tb_RollTrackValue";
-            this.tb_RollTrackValue.ReadOnly = true;
-            this.tb_RollTrackValue.Size = new System.Drawing.Size(200, 20);
-            this.tb_RollTrackValue.TabIndex = 29;
+            this.textBoxRollTrackValue.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxRollTrackValue.Location = new System.Drawing.Point(10, 334);
+            this.textBoxRollTrackValue.Name = "textBoxRollTrackValue";
+            this.textBoxRollTrackValue.Size = new System.Drawing.Size(200, 20);
+            this.textBoxRollTrackValue.TabIndex = 29;
             // 
             // buttonReset
             // 
@@ -349,7 +355,7 @@
             // labelYawRotation
             // 
             this.labelYawRotation.AutoSize = true;
-            this.labelYawRotation.Location = new System.Drawing.Point(16, 105);
+            this.labelYawRotation.Location = new System.Drawing.Point(16, 84);
             this.labelYawRotation.Name = "labelYawRotation";
             this.labelYawRotation.Size = new System.Drawing.Size(13, 13);
             this.labelYawRotation.TabIndex = 31;
@@ -358,7 +364,7 @@
             // labelPitchRotation
             // 
             this.labelPitchRotation.AutoSize = true;
-            this.labelPitchRotation.Location = new System.Drawing.Point(16, 105);
+            this.labelPitchRotation.Location = new System.Drawing.Point(16, 84);
             this.labelPitchRotation.Name = "labelPitchRotation";
             this.labelPitchRotation.Size = new System.Drawing.Size(13, 13);
             this.labelPitchRotation.TabIndex = 32;
@@ -367,7 +373,7 @@
             // labelRollRotation
             // 
             this.labelRollRotation.AutoSize = true;
-            this.labelRollRotation.Location = new System.Drawing.Point(16, 105);
+            this.labelRollRotation.Location = new System.Drawing.Point(16, 84);
             this.labelRollRotation.Name = "labelRollRotation";
             this.labelRollRotation.Size = new System.Drawing.Size(13, 13);
             this.labelRollRotation.TabIndex = 33;
@@ -375,6 +381,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelFightDriftX);
+            this.groupBox1.Controls.Add(this.buttonFightDriftXMinus);
+            this.groupBox1.Controls.Add(this.buttonFightDriftXPlus);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.labelYawSpeed);
@@ -383,7 +392,7 @@
             this.groupBox1.Controls.Add(this.labelMatchYaw);
             this.groupBox1.Controls.Add(this.labelYawRotation);
             this.groupBox1.Controls.Add(this.labelRawYaw);
-            this.groupBox1.Controls.Add(this.tb_YawTrackValue);
+            this.groupBox1.Controls.Add(this.textBoxYawTrackValue);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(5, 100);
             this.groupBox1.Name = "groupBox1";
@@ -391,6 +400,44 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yaw";
+            // 
+            // labelFightDriftX
+            // 
+            this.labelFightDriftX.AutoSize = true;
+            this.labelFightDriftX.Enabled = false;
+            this.labelFightDriftX.Location = new System.Drawing.Point(53, 288);
+            this.labelFightDriftX.Name = "labelFightDriftX";
+            this.labelFightDriftX.Size = new System.Drawing.Size(117, 13);
+            this.labelFightDriftX.TabIndex = 38;
+            this.labelFightDriftX.Text = "Opentrack Fight Drift: 0";
+            // 
+            // buttonFightDriftXMinus
+            // 
+            this.buttonFightDriftXMinus.Enabled = false;
+            this.buttonFightDriftXMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFightDriftXMinus.Location = new System.Drawing.Point(14, 279);
+            this.buttonFightDriftXMinus.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFightDriftXMinus.Name = "buttonFightDriftXMinus";
+            this.buttonFightDriftXMinus.Size = new System.Drawing.Size(25, 26);
+            this.buttonFightDriftXMinus.TabIndex = 37;
+            this.buttonFightDriftXMinus.Text = "-";
+            this.buttonFightDriftXMinus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonFightDriftXMinus.UseVisualStyleBackColor = true;
+            this.buttonFightDriftXMinus.Click += new System.EventHandler(this.buttonFightDriftXMinus_Click);
+            // 
+            // buttonFightDriftXPlus
+            // 
+            this.buttonFightDriftXPlus.Enabled = false;
+            this.buttonFightDriftXPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFightDriftXPlus.Location = new System.Drawing.Point(185, 279);
+            this.buttonFightDriftXPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFightDriftXPlus.Name = "buttonFightDriftXPlus";
+            this.buttonFightDriftXPlus.Size = new System.Drawing.Size(25, 26);
+            this.buttonFightDriftXPlus.TabIndex = 36;
+            this.buttonFightDriftXPlus.Text = "+";
+            this.buttonFightDriftXPlus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonFightDriftXPlus.UseVisualStyleBackColor = true;
+            this.buttonFightDriftXPlus.Click += new System.EventHandler(this.buttonFightDriftXPlus_Click);
             // 
             // label11
             // 
@@ -424,15 +471,15 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(11, 312);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 32;
-            this.label5.Text = "Screen Width";
+            this.label5.Text = "Canvas Width";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = global::PhoenixHeadTracker.Properties.Resources.imageYaw;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 77);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
@@ -442,7 +489,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labelFightDriftY);
             this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.buttonFightDriftYMinus);
+            this.groupBox2.Controls.Add(this.buttonFightDriftYPlus);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.labelPitchSpeed);
             this.groupBox2.Controls.Add(this.label6);
@@ -450,7 +500,7 @@
             this.groupBox2.Controls.Add(this.labelMatchPitch);
             this.groupBox2.Controls.Add(this.labelPitchRotation);
             this.groupBox2.Controls.Add(this.labelRawPitch);
-            this.groupBox2.Controls.Add(this.tb_PitchTrackValue);
+            this.groupBox2.Controls.Add(this.textBoxPitchTrackValue);
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Location = new System.Drawing.Point(232, 100);
             this.groupBox2.Name = "groupBox2";
@@ -458,6 +508,16 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pitch";
+            // 
+            // labelFightDriftY
+            // 
+            this.labelFightDriftY.AutoSize = true;
+            this.labelFightDriftY.Enabled = false;
+            this.labelFightDriftY.Location = new System.Drawing.Point(49, 288);
+            this.labelFightDriftY.Name = "labelFightDriftY";
+            this.labelFightDriftY.Size = new System.Drawing.Size(117, 13);
+            this.labelFightDriftY.TabIndex = 41;
+            this.labelFightDriftY.Text = "Opentrack Fight Drift: 0";
             // 
             // label12
             // 
@@ -467,6 +527,34 @@
             this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 36;
             this.label12.Text = "Slower";
+            // 
+            // buttonFightDriftYMinus
+            // 
+            this.buttonFightDriftYMinus.Enabled = false;
+            this.buttonFightDriftYMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFightDriftYMinus.Location = new System.Drawing.Point(10, 279);
+            this.buttonFightDriftYMinus.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFightDriftYMinus.Name = "buttonFightDriftYMinus";
+            this.buttonFightDriftYMinus.Size = new System.Drawing.Size(25, 26);
+            this.buttonFightDriftYMinus.TabIndex = 40;
+            this.buttonFightDriftYMinus.Text = "-";
+            this.buttonFightDriftYMinus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonFightDriftYMinus.UseVisualStyleBackColor = true;
+            this.buttonFightDriftYMinus.Click += new System.EventHandler(this.buttonFightDriftYMinus_Click);
+            // 
+            // buttonFightDriftYPlus
+            // 
+            this.buttonFightDriftYPlus.Enabled = false;
+            this.buttonFightDriftYPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFightDriftYPlus.Location = new System.Drawing.Point(181, 279);
+            this.buttonFightDriftYPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFightDriftYPlus.Name = "buttonFightDriftYPlus";
+            this.buttonFightDriftYPlus.Size = new System.Drawing.Size(25, 26);
+            this.buttonFightDriftYPlus.TabIndex = 39;
+            this.buttonFightDriftYPlus.Text = "+";
+            this.buttonFightDriftYPlus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonFightDriftYPlus.UseVisualStyleBackColor = true;
+            this.buttonFightDriftYPlus.Click += new System.EventHandler(this.buttonFightDriftYPlus_Click);
             // 
             // label9
             // 
@@ -491,15 +579,15 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 312);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.Size = new System.Drawing.Size(77, 13);
             this.label6.TabIndex = 33;
-            this.label6.Text = "Screen Height";
+            this.label6.Text = "Canvas Height";
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = global::PhoenixHeadTracker.Properties.Resources.imagePitch;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox2.Location = new System.Drawing.Point(10, 77);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 200);
@@ -509,7 +597,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.labelFightDriftRoll);
             this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.buttonFightDriftRollMinus);
+            this.groupBox3.Controls.Add(this.buttonFightDriftRollPlus);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.labelRollSpeed);
             this.groupBox3.Controls.Add(this.label7);
@@ -517,7 +608,7 @@
             this.groupBox3.Controls.Add(this.labelRawRoll);
             this.groupBox3.Controls.Add(this.labelRollRotation);
             this.groupBox3.Controls.Add(this.trackBarRollSpeed);
-            this.groupBox3.Controls.Add(this.tb_RollTrackValue);
+            this.groupBox3.Controls.Add(this.textBoxRollTrackValue);
             this.groupBox3.Controls.Add(this.pictureBox3);
             this.groupBox3.Location = new System.Drawing.Point(459, 100);
             this.groupBox3.Name = "groupBox3";
@@ -525,6 +616,16 @@
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Roll";
+            // 
+            // labelFightDriftRoll
+            // 
+            this.labelFightDriftRoll.AutoSize = true;
+            this.labelFightDriftRoll.Enabled = false;
+            this.labelFightDriftRoll.Location = new System.Drawing.Point(51, 288);
+            this.labelFightDriftRoll.Name = "labelFightDriftRoll";
+            this.labelFightDriftRoll.Size = new System.Drawing.Size(117, 13);
+            this.labelFightDriftRoll.TabIndex = 44;
+            this.labelFightDriftRoll.Text = "Opentrack Fight Drift: 0";
             // 
             // label13
             // 
@@ -534,6 +635,34 @@
             this.label13.Size = new System.Drawing.Size(39, 13);
             this.label13.TabIndex = 37;
             this.label13.Text = "Slower";
+            // 
+            // buttonFightDriftRollMinus
+            // 
+            this.buttonFightDriftRollMinus.Enabled = false;
+            this.buttonFightDriftRollMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFightDriftRollMinus.Location = new System.Drawing.Point(10, 279);
+            this.buttonFightDriftRollMinus.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFightDriftRollMinus.Name = "buttonFightDriftRollMinus";
+            this.buttonFightDriftRollMinus.Size = new System.Drawing.Size(25, 26);
+            this.buttonFightDriftRollMinus.TabIndex = 43;
+            this.buttonFightDriftRollMinus.Text = "-";
+            this.buttonFightDriftRollMinus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonFightDriftRollMinus.UseVisualStyleBackColor = true;
+            this.buttonFightDriftRollMinus.Click += new System.EventHandler(this.buttonFightDriftRollMinus_Click);
+            // 
+            // buttonFightDriftRollPlus
+            // 
+            this.buttonFightDriftRollPlus.Enabled = false;
+            this.buttonFightDriftRollPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFightDriftRollPlus.Location = new System.Drawing.Point(181, 279);
+            this.buttonFightDriftRollPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonFightDriftRollPlus.Name = "buttonFightDriftRollPlus";
+            this.buttonFightDriftRollPlus.Size = new System.Drawing.Size(25, 26);
+            this.buttonFightDriftRollPlus.TabIndex = 42;
+            this.buttonFightDriftRollPlus.Text = "+";
+            this.buttonFightDriftRollPlus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonFightDriftRollPlus.UseVisualStyleBackColor = true;
+            this.buttonFightDriftRollPlus.Click += new System.EventHandler(this.buttonFightDriftRollPlus_Click);
             // 
             // label10
             // 
@@ -558,15 +687,15 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 312);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 33;
-            this.label7.Text = "Screen Width";
+            this.label7.Text = "Canvas Width";
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Image = global::PhoenixHeadTracker.Properties.Resources.imageRoll;
-            this.pictureBox3.Location = new System.Drawing.Point(10, 98);
+            this.pictureBox3.Location = new System.Drawing.Point(10, 77);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 200);
@@ -846,7 +975,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.1.0";
+            this.Text = "PhoenixHeadTracker 3.0.2.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
@@ -894,13 +1023,13 @@
         private System.Windows.Forms.Button buttonMouseTrackOff;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TextBox textBoxLog1;
-        private System.Windows.Forms.TextBox tb_YawTrackValue;
-        private System.Windows.Forms.TextBox tb_PitchTrackValue;
+        private System.Windows.Forms.TextBox textBoxYawTrackValue;
+        private System.Windows.Forms.TextBox textBoxPitchTrackValue;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label labelRawRoll;
         private System.Windows.Forms.Label labelMatchRoll;
         private System.Windows.Forms.TrackBar trackBarRollSpeed;
-        private System.Windows.Forms.TextBox tb_RollTrackValue;
+        private System.Windows.Forms.TextBox textBoxRollTrackValue;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label labelYawRotation;
         private System.Windows.Forms.Label labelPitchRotation;
@@ -944,6 +1073,15 @@
         private System.Windows.Forms.CheckBox checkBoxInvertRoll;
         private System.Windows.Forms.CheckBox checkBoxInvertPitch;
         private System.Windows.Forms.CheckBox checkBoxInvertYaw;
+        private System.Windows.Forms.Label labelFightDriftX;
+        private System.Windows.Forms.Button buttonFightDriftXMinus;
+        private System.Windows.Forms.Button buttonFightDriftXPlus;
+        private System.Windows.Forms.Label labelFightDriftY;
+        private System.Windows.Forms.Button buttonFightDriftYMinus;
+        private System.Windows.Forms.Button buttonFightDriftYPlus;
+        private System.Windows.Forms.Label labelFightDriftRoll;
+        private System.Windows.Forms.Button buttonFightDriftRollMinus;
+        private System.Windows.Forms.Button buttonFightDriftRollPlus;
     }
 }
 
