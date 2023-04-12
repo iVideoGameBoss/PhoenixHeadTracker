@@ -20,9 +20,13 @@ Should you choose to use opentrack, you can do so by clicking on the 'start open
 
 ![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/231214599-d2efe415-476b-49d1-bf70-3ae3bbda5ec1.png)
 
-Opentrack settings
+Opentrack settings for UDP
 
 ![Screenshot 2023-04-08 210432](https://user-images.githubusercontent.com/129109589/230751023-7cad672a-8384-430a-80d7-90aa4ea986ce.png)
+
+You can also adjust how to use the Yaw and Pitch values. So if you want the in game camera to turn 90 degrees like in real life you can adjust it in mappings.
+
+![Screenshot 2023-04-12 073500](https://user-images.githubusercontent.com/129109589/231459880-3880c7c7-425a-4139-8880-e4882242ed39.png)
 
 # Microsoft Flight Simulator working with opentrack
 
