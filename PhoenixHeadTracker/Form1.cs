@@ -295,7 +295,7 @@ namespace PhoenixHeadTracker
                     filterr = new KalmanFilter(t, r, p, roll);
                     filteredValuer = filterr.Update(roll);
 
-                    textBoxLog1.Text = string.Format("measurement{0}\r\nmeasurement{1}\r\n", filteredValuex, arr[2]);
+                    //textBoxLog1.Text = string.Format("measurement{0}\r\nmeasurement{1}\r\n", filteredValuex, arr[2]);
                     yaw = filteredValuex;
                     pitch = filteredValuey;
                     roll = filteredValuer;
@@ -612,7 +612,7 @@ namespace PhoenixHeadTracker
                             if (SendInput(1, new INPUT[] { raw }, Marshal.SizeOf(raw)) == 0)
                             {
                                 // Display an error message if the input failed to send
-                                textBoxLog1.Text = string.Format("Failed to send mouse input.");
+                                //textBoxLog1.Text = string.Format("Failed to send mouse input.");
                             }
                         }
                     }
@@ -785,7 +785,7 @@ namespace PhoenixHeadTracker
         private void VisitLink3()
         {
             linkLabel1.LinkVisited = true;
-            Process.Start("https://paypal.me/ivideogameboss?country.x=US&locale.x=en_US");
+            Process.Start("https://www.buymeacoffee.com/ivideogameboss");
         }
 
         private void buttonFightDriftXPlus_Click(object sender, EventArgs e)

@@ -159,11 +159,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(106, 582);
+            this.label4.Location = new System.Drawing.Point(143, 584);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 13);
+            this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Current Mouse Location";
+            this.label4.Text = "Mouse Location";
             // 
             // trackBarYawSpeed
             // 
@@ -197,8 +197,8 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(668, 40);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Wait 5+ seconds for sensors to adjust after connection. Roll data is not used for" +
-    " mouse track and Opentrack UDP.";
+            this.label3.Text = "Keep device still and wait 5+ seconds for sensor calibration after connection. Ro" +
+    "ll data is not used for mouse track and Opentrack UDP.";
             // 
             // labelMatchYaw
             // 
@@ -780,12 +780,13 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.Location = new System.Drawing.Point(9, 582);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(93, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(103, 16);
             this.linkLabel3.TabIndex = 44;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Steam Deck Fund";
+            this.linkLabel3.Text = "Buy me a coffee";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // buttonStartOpentrack
@@ -975,7 +976,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.2.0";
+            this.Text = "PhoenixHeadTracker 3.0.2.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
