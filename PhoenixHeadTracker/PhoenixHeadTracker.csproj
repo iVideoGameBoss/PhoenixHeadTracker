@@ -124,7 +124,10 @@
     <None Include="Resources\imageYaw.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\imageYaw1.png" />
+    <None Include="Resources\imagePitch1.png" />
     <Content Include="Resources\imageRoll.png" />
+    <None Include="Resources\imageRoll1.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

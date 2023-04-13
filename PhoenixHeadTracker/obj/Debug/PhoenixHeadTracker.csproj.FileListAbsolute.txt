@@ -9,3 +9,15 @@ E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\bin\Debug\PhoenixHeadTracker.
 E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\bin\Debug\PhoenixHeadTracker.pdb
 E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.exe
 E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.pdb
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\bin\Debug\PhoenixHeadTracker.exe.config
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\bin\Debug\PhoenixHeadTracker.exe
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\bin\Debug\PhoenixHeadTracker.pdb
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.csproj.AssemblyReference.cache
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.csproj.SuggestedBindingRedirects.cache
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.g.resources
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.Form1.resources
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.Properties.Resources.resources
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.csproj.GenerateResource.cache
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.exe
+C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\Debug\PhoenixHeadTracker.pdb

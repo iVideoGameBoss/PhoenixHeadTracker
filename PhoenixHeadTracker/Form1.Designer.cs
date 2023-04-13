@@ -717,7 +717,7 @@
             this.trackBarDrift.Name = "trackBarDrift";
             this.trackBarDrift.Size = new System.Drawing.Size(168, 45);
             this.trackBarDrift.TabIndex = 37;
-            this.trackBarDrift.Value = 10;
+            this.trackBarDrift.Value = 6;
             // 
             // labelDriftFilter
             // 
@@ -725,9 +725,9 @@
             this.labelDriftFilter.Enabled = false;
             this.labelDriftFilter.Location = new System.Drawing.Point(690, 9);
             this.labelDriftFilter.Name = "labelDriftFilter";
-            this.labelDriftFilter.Size = new System.Drawing.Size(57, 13);
+            this.labelDriftFilter.Size = new System.Drawing.Size(79, 13);
             this.labelDriftFilter.TabIndex = 38;
-            this.labelDriftFilter.Text = "Drift Filter :";
+            this.labelDriftFilter.Text = "Mouse Speed :";
             // 
             // labelMouseSmoothFilter
             // 
@@ -746,7 +746,7 @@
             this.trackBarMouseSmooth.Name = "trackBarMouseSmooth";
             this.trackBarMouseSmooth.Size = new System.Drawing.Size(149, 45);
             this.trackBarMouseSmooth.TabIndex = 39;
-            this.trackBarMouseSmooth.Value = 6;
+            this.trackBarMouseSmooth.Value = 1;
             // 
             // labelMouseDelayFilter
             // 
@@ -764,7 +764,6 @@
             this.trackBarMouseDelay.Name = "trackBarMouseDelay";
             this.trackBarMouseDelay.Size = new System.Drawing.Size(149, 45);
             this.trackBarMouseDelay.TabIndex = 41;
-            this.trackBarMouseDelay.Value = 1;
             // 
             // linkLabel2
             // 
@@ -976,7 +975,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.2.2";
+            this.Text = "PhoenixHeadTracker 3.0.3.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
