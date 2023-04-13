@@ -18,7 +18,7 @@ You now have two options for utilizing the head tracking data. Firstly, you can 
 
 Should you choose to use opentrack, you can do so by clicking on the 'start opentrack UDP' option. Within opentrack, you will need to select UDP over network in order to receive the data.
 
-![phoenixheadtracker](https://user-images.githubusercontent.com/129109589/231214599-d2efe415-476b-49d1-bf70-3ae3bbda5ec1.png)
+![Screenshot 2023-04-13 000148](https://user-images.githubusercontent.com/129109589/231658217-addecb42-648d-4caa-bc39-747c72faad6a.png)
 
 Opentrack settings for UDP
 
