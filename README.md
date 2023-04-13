@@ -28,6 +28,24 @@ You can also adjust how to use the Yaw and Pitch values. So if you want the in g
 
 ![Screenshot 2023-04-12 073500](https://user-images.githubusercontent.com/129109589/231459880-3880c7c7-425a-4139-8880-e4882242ed39.png)
 
+Here you can see I wanted the in game camera to turn faster on Yaw so I don't have to turn 90 degrees is real life. It makes it eaiser on the neck when playing games. So now when I turn my head it will turn faster to left and right using the data from PhoenixHeadTracker.
+
+![yaw](https://user-images.githubusercontent.com/129109589/231812388-13638e1f-8a0d-4ab1-92d3-9df32284643e.png)
+
+I did the same think for Pitch so it just feels right.
+
+![pitch](https://user-images.githubusercontent.com/129109589/231812662-f7456c5b-ff64-4778-b579-c5f7ca037648.png)
+
+I reccomend you also flat line roll data as this data is not used by PhoenixHeadTracker
+
+![roll](https://user-images.githubusercontent.com/129109589/231813295-ab9837f9-dc39-4a1f-945f-84421c0ccfd6.png)
+
+# Setup you Center Key in Opentrack
+
+Due to how gyro data works and drifts, it is a good idea to have a center camera key setup. Just click on bind and pick a key. In this example you can see I picked the '-' key on my numpad.
+
+![Screenshot 2023-04-13 103644](https://user-images.githubusercontent.com/129109589/231813488-767b9d61-0373-4315-b4c1-ae6a2a4d24f9.png)
+
 # Microsoft Flight Simulator working with opentrack
 
 https://user-images.githubusercontent.com/129109589/230751056-9ac0df97-939f-4e08-b3d2-690d606b58e5.mp4
