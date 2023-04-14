@@ -14,7 +14,10 @@ To connect your Nreal Air glasses to your PC, there are two options available. F
 
 It is important to ensure that your glasses have a direct connection to the PC. Once connected, launch the PhoenixHeadTracker software and click on the 'Connect Nreal Air' option. Please allow a few seconds for the sensors to adjust.
 
-You now have two options for utilizing the head tracking data. Firstly, you can use opentrack, or alternatively, you can click on 'Start Mouse Track'. This will allow you to control the mouse on your screen, enabling you to look around in video games.
+You now have two options for utilizing the head tracking data. Firstly, you can use opentrack, or alternatively, you can click on 'Start Mouse Track'. This will allow you to control the mouse on your screen, enabling you to look around in video games. Here is an example of play Cyberpunk 2077 with mouse look feature.
+
+https://user-images.githubusercontent.com/129109589/231939591-a10d483a-73e6-49ed-bf91-9a9bea4aa893.mp4
+
 
 Should you choose to use opentrack, you can do so by clicking on the 'start opentrack UDP' option. Within opentrack, you will need to select UDP over network in order to receive the data.
 
