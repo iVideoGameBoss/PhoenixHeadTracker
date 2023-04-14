@@ -213,9 +213,20 @@ namespace PhoenixHeadTracker
             if (xMapped != previousX || yMapped != previousY || rollMapped != previousRoll)
             {
                 // Calculate the change in degrees for each axis
-                deltaX = xMapped - previousX;
-                deltaY = yMapped - previousY;
-                deltaRoll = rollMapped - previousRoll;
+
+                if (Math.Abs(xMapped - previousX)<6000 )
+                {
+                    deltaX = xMapped - previousX;
+                }
+                if (Math.Abs(yMapped - previousY) < 6000)
+                {
+                    deltaY = yMapped - previousY;
+                }
+                if (Math.Abs(rollMapped - previousRoll) < 6000)
+                {
+                    deltaRoll = rollMapped - previousRoll;
+                }
+
 
                 // Filter the degree changes for smoother rotation
                 filterx = new KalmanFilter(t, r, p, deltaX);

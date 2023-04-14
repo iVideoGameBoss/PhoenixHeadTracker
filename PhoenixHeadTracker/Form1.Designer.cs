@@ -975,7 +975,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.3.0";
+            this.Text = "PhoenixHeadTracker 3.0.3.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
