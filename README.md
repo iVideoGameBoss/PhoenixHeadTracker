@@ -72,7 +72,7 @@ Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug folder. I
 
 # You Can Use Phoenix Head Tracker with Gyro Data from Other Devices 
 
-PhoenixHeadTracker can me made to work with other devices that can supply gyro data using a dll. You can also add code if you want to work with 6dof data. Its already setup to work with 3dof data in degrees. Create your own dll and import it like I did here with AirAPI_Windows.dll. Add two functions to get started. 
+PhoenixHeadTracker can be made to work with other devices that can supply gyro data using a dll. You can also add code if you want to work with 6dof data. Its already setup to work with 3dof data in degrees. Create your own dll and import it like I did here with AirAPI_Windows.dll. Add two functions to get started. 
 
 ![Screenshot 2023-04-13 105555](https://user-images.githubusercontent.com/129109589/231817088-a0858efd-4658-409c-86d4-4a896ee8b6a9.png)
 
