@@ -40,7 +40,7 @@ I reccomend you also flat line roll data as this data is not used by PhoenixHead
 
 ![roll](https://user-images.githubusercontent.com/129109589/231813295-ab9837f9-dc39-4a1f-945f-84421c0ccfd6.png)
 
-# Setup you Center Key in Opentrack
+# Setup your Center Key in Opentrack
 
 Due to how gyro data works and drifts, it is a good idea to have a center camera key setup. Just click on bind and pick a key. In this example you can see I picked the '-' key on my numpad.
 
