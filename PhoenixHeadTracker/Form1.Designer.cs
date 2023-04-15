@@ -106,6 +106,8 @@
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.textBoxIPAddress = new System.Windows.Forms.TextBox();
             this.groupBoxMouseTrack = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRollSpeed)).BeginInit();
@@ -120,22 +122,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMouseDelay)).BeginInit();
             this.groupBoxOpentrack.SuspendLayout();
             this.groupBoxMouseTrack.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
+            this.button2.Location = new System.Drawing.Point(12, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 38);
+            this.button2.Size = new System.Drawing.Size(118, 35);
             this.button2.TabIndex = 0;
-            this.button2.Text = "Connect Nreal Air";
+            this.button2.Text = "Connect";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 25);
+            this.label2.Location = new System.Drawing.Point(14, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 1;
@@ -191,14 +194,15 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label3.Location = new System.Drawing.Point(12, 57);
+            this.label3.Location = new System.Drawing.Point(12, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(668, 40);
+            this.label3.Size = new System.Drawing.Size(667, 40);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Keep device still and wait 5+ seconds for sensor calibration after connection. Ro" +
-    "ll data is not used for mouse track and Opentrack UDP.";
+            this.label3.Text = "Put on your glasses, Press Connect. Keep still and wait 5+ seconds for sensor cal" +
+    "ibration after connection. Roll data is not used for mouse track and Opentrack U" +
+    "DP.";
             // 
             // labelMatchYaw
             // 
@@ -275,12 +279,12 @@
             // 
             // textBoxLog1
             // 
-            this.textBoxLog1.Location = new System.Drawing.Point(232, 12);
+            this.textBoxLog1.Location = new System.Drawing.Point(469, 573);
             this.textBoxLog1.Multiline = true;
             this.textBoxLog1.Name = "textBoxLog1";
             this.textBoxLog1.ReadOnly = true;
             this.textBoxLog1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLog1.Size = new System.Drawing.Size(270, 26);
+            this.textBoxLog1.Size = new System.Drawing.Size(35, 26);
             this.textBoxLog1.TabIndex = 22;
             this.textBoxLog1.Visible = false;
             // 
@@ -344,12 +348,13 @@
             // buttonReset
             // 
             this.buttonReset.Enabled = false;
-            this.buttonReset.Location = new System.Drawing.Point(530, 12);
+            this.buttonReset.Location = new System.Drawing.Point(513, 575);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(150, 38);
+            this.buttonReset.Size = new System.Drawing.Size(67, 26);
             this.buttonReset.TabIndex = 30;
             this.buttonReset.Text = "Reset Rotation";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Visible = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // labelYawRotation
@@ -954,9 +959,31 @@
             this.groupBoxMouseTrack.TabStop = false;
             this.groupBoxMouseTrack.Text = "Mouse Track";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Location = new System.Drawing.Point(146, 9);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(534, 45);
+            this.groupBox4.TabIndex = 52;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Opentrack Instructions for re-center";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 20);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(506, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Please Bind \'Center\' Shortcut Key in Opentrack to Reset Rotation in game. Options" +
+    "->Shortcuts tab. Center";
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(869, 609);
+            this.ClientSize = new System.Drawing.Size(862, 609);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.groupBoxMouseTrack);
             this.Controls.Add(this.groupBoxOpentrack);
             this.Controls.Add(this.trackBarDrift);
@@ -966,7 +993,6 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.textBoxLog1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
@@ -975,7 +1001,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.3.2";
+            this.Text = "PhoenixHeadTracker 3.0.3.3";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();
@@ -996,6 +1022,8 @@
             this.groupBoxOpentrack.PerformLayout();
             this.groupBoxMouseTrack.ResumeLayout(false);
             this.groupBoxMouseTrack.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1082,6 +1110,8 @@
         private System.Windows.Forms.Label labelFightDriftRoll;
         private System.Windows.Forms.Button buttonFightDriftRollMinus;
         private System.Windows.Forms.Button buttonFightDriftRollPlus;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label17;
     }
 }
 
