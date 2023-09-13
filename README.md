@@ -1,21 +1,21 @@
 # PhoenixHeadTracker
-The Phoenix Head Tracker is a program that interfaces with Nreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
-[Buy Me a Coffee](https://www.buymeacoffee.com/ivideogameboss) Hey, I created PhoenixHeadTracker for Nreal Air and would really appreciate your support. I work on this software on my own time for you guys. Thank You!
+[Buy Me a Coffee](https://www.buymeacoffee.com/ivideogameboss) Hey, I created PhoenixHeadTracker for Xreal Air and would really appreciate your support. I work on this software on my own time for you guys. Thank You!
 
 https://user-images.githubusercontent.com/129109589/229800261-125fdc69-845c-4815-9231-f5b6f53a43fa.mp4
 
-I worked all day and night on this thing and it was worth it for you all. You will love your Nreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Microsoft Flight Simulator, Cyberpunk 2077.
+I worked all day and night on this thing and it was worth it for you all. You will love your Xreal Air glasses with this new tool. It even works with 3D SBS mode. Play your games, Skyrim, DCS, Microsoft Flight Simulator, Cyberpunk 2077.
 
 https://user-images.githubusercontent.com/129109589/230780822-298d8527-4deb-4d49-a18e-28d2e3c5ec9b.mp4
 
 # How to use PhoenixHeadTracker
-To connect your Nreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFanco adapter can also be used, which can be obtained from the following Amazon link: [goFanco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)
+To connect your Xreal Air glasses to your PC, there are two options available. Firstly, you can use the USB-Type C connector. Alternatively, a goFanco adapter can also be used, which can be obtained from the following Amazon link: [goFanco adapter](https://www.amazon.com/gp/product/B08Y5PBWLQ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)
 
-It is important to ensure that your glasses have a direct connection to the PC. Once connected, launch the PhoenixHeadTracker software and click on the 'Connect Nreal Air' option. Please allow a few seconds for the sensors to adjust.
+It is important to ensure that your glasses have a direct connection to the PC. Once connected, launch the PhoenixHeadTracker software and click on the 'Connect Xreal Air' option. Please allow a few seconds for the sensors to adjust.
 
 
-You now have two options for utilizing the head tracking data. Firstly, you can use opentrack, or alternatively, you can click on 'Start Mouse Track'. This will allow you to control the mouse on your screen, enabling you to look around in video games. Here is an example of playing Cyberpunk 2077 with mouse look feature and using a controller at same time. On PC you can play games using a controller, mouse, keyboard. PhoenixHeadTracker and Nreal Air are the perfect match.
+You now have two options for utilizing the head tracking data. Firstly, you can use opentrack, or alternatively, you can click on 'Start Mouse Track'. This will allow you to control the mouse on your screen, enabling you to look around in video games. Here is an example of playing Cyberpunk 2077 with mouse look feature and using a controller at same time. On PC you can play games using a controller, mouse, keyboard. PhoenixHeadTracker and Xreal Air are the perfect match.
 
 https://user-images.githubusercontent.com/129109589/231939591-a10d483a-73e6-49ed-bf91-9a9bea4aa893.mp4
 
