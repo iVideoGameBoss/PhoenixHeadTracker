@@ -39,11 +39,21 @@ I did the same think for Pitch so it just feels right.
 
 ![pitch](https://user-images.githubusercontent.com/129109589/231812662-f7456c5b-ff64-4778-b579-c5f7ca037648.png)
 
+
 # Setup your Center Key in Opentrack
 
 Due to how gyro data works and drifts, it is a good idea to have a center camera key setup. Just click on bind and pick a key. In this example you can see I picked the '-' key on my numpad.
 
 ![Screenshot 2023-04-13 103644](https://user-images.githubusercontent.com/129109589/231813488-767b9d61-0373-4315-b4c1-ae6a2a4d24f9.png)
+
+
+# Fight Drift
+
+When you are looking around in game the Yaw, Pitch and Roll values can drift overtime. You can fight this type of drift more by adding a negative or positive value. You want to try to keep the Track value to zero. Don't drive yourself crazy over this. Below example shows I add a value of -3 to help fight drift on my Xreal Air glasses Yaw value
+
+![fightdrift](https://github.com/iVideoGameBoss/PhoenixHeadTracker/assets/129109589/dbd6ff27-c79a-43ec-984f-d59dbe586da4)
+
+
 
 # Microsoft Flight Simulator working with opentrack
 
