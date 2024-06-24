@@ -1,5 +1,5 @@
 # PhoenixHeadTracker
-The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using custom version of [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows) to support roll data. By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 [Buy Me a Coffee](https://www.buymeacoffee.com/ivideogameboss) Hey, I created PhoenixHeadTracker for Xreal Air and would really appreciate your support. I work on this software on my own time for you guys. Thank You!
 
@@ -38,10 +38,6 @@ Here you can see I wanted the in game camera to turn faster on Yaw so I don't ha
 I did the same think for Pitch so it just feels right.
 
 ![pitch](https://user-images.githubusercontent.com/129109589/231812662-f7456c5b-ff64-4778-b579-c5f7ca037648.png)
-
-I reccomend you also flat line roll data as this data is not used by PhoenixHeadTracker
-
-![roll](https://user-images.githubusercontent.com/129109589/231813295-ab9837f9-dc39-4a1f-945f-84421c0ccfd6.png)
 
 # Setup your Center Key in Opentrack
 
