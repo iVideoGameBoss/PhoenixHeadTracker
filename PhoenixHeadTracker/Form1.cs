@@ -156,6 +156,7 @@ namespace PhoenixHeadTracker
         double t = 0.01; // process noise variance
         double r = 0.002; // measurement noise variance
         double p = 0.0; // initial estimate error covariance
+
         KalmanFilter filterx; 
         double filteredValuex;
         KalmanFilter filtery; 
@@ -266,14 +267,20 @@ namespace PhoenixHeadTracker
                 // Check if the track is open
                 if (isOpenTrack == true)
                 {
+                    // Implement a small deadzone to prevent tiny movements from accumulating
+                    const double DEADZONE = 0.01; // Adjust this value as needed
+
                     // Update x, y, and roll rotation distances based on the previous values
                     double tempX = (xRot - arr[2]);
+                    if (Math.Abs(tempX) < DEADZONE) tempX = 0;
                     xRot += rotDistanceYaw - tempX;
 
                     double tempY = (yRot - arr[1]);
+                    if (Math.Abs(tempY) < DEADZONE) tempY = 0;
                     yRot += rotDistancePitch - tempY ;
 
                     double tempRoll = (rollRot - arr[0])  ;
+                    if (Math.Abs(tempRoll) < DEADZONE) tempRoll = 0;
                     rollRot += rollDistanceRoll - tempRoll;
 
                     // Filter the rotation data to smooth out noise and improve accuracy

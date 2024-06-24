@@ -836,7 +836,6 @@
             this.checkBoxRoll.TabIndex = 49;
             this.checkBoxRoll.Text = "Send Roll Data";
             this.checkBoxRoll.UseVisualStyleBackColor = true;
-            this.checkBoxRoll.Visible = false;
             // 
             // groupBoxOpentrack
             // 
@@ -878,7 +877,6 @@
             this.checkBoxInvertRoll.Size = new System.Drawing.Size(15, 14);
             this.checkBoxInvertRoll.TabIndex = 57;
             this.checkBoxInvertRoll.UseVisualStyleBackColor = true;
-            this.checkBoxInvertRoll.Visible = false;
             // 
             // checkBoxInvertPitch
             // 
@@ -1001,7 +999,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
-            this.Text = "PhoenixHeadTracker 3.0.3.3";
+            this.Text = "PhoenixHeadTracker 3.0.3.5";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYawSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitchSpeed)).EndInit();

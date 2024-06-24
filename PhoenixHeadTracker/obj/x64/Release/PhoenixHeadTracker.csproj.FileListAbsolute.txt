@@ -10,3 +10,14 @@ C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTrac
 C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
 C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.exe
 C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.pdb
+E:\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Release\PhoenixHeadTracker.exe.config
+E:\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Release\PhoenixHeadTracker.exe
+E:\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Release\PhoenixHeadTracker.pdb
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.csproj.AssemblyReference.cache
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.g.resources
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.Form1.resources
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.Properties.Resources.resources
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.csproj.GenerateResource.cache
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.exe
+E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Release\PhoenixHeadTracker.pdb
