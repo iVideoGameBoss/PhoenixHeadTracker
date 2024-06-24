@@ -39,9 +39,6 @@ I did the same think for Pitch so it just feels right.
 
 ![pitch](https://user-images.githubusercontent.com/129109589/231812662-f7456c5b-ff64-4778-b579-c5f7ca037648.png)
 
-I reccomend you also flat line roll data as this data is not used by PhoenixHeadTracker
-
-![roll](https://user-images.githubusercontent.com/129109589/231813295-ab9837f9-dc39-4a1f-945f-84421c0ccfd6.png)
 
 # Setup your Center Key in Opentrack
 
