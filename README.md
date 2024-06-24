@@ -1,5 +1,5 @@
 # PhoenixHeadTracker
-The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using a custom version [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). The custom version handles roll data correctly. By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 [Buy Me a Coffee](https://www.buymeacoffee.com/ivideogameboss) Hey, I created PhoenixHeadTracker for Xreal Air and would really appreciate your support. I work on this software on my own time for you guys. Thank You!
 
