@@ -57,15 +57,15 @@ Phoenixheadtracker https://github.com/iVideoGameBoss/PhoenixHeadTracker/releases
 Opentrack https://github.com/opentrack/opentrack/releases
 
 # How to build using Visual Studio 22
-PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the AirAPI_Windows.dll and hidapi.dll in the PhoenixHeadTracker/bin/x64/Debug/ folder. These two files are required in order to connect to Nreal Air glasses.
+PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the custom version of AirAPI_Windows.dll that supports roll data and also hidapi.dll in the PhoenixHeadTracker/bin/x64/Release/ and or debug folder. These two files are required in order to connect to Xreal Air glasses. The version of AirAPI_Windows.dll included with PhoenixHeadTracker supports roll data. 
 
 
-Once you clone the project, open in Visual Studio 22 by clicking on PhoenixHeadTracker.sln. Make sure you set to build on x64 and debug.Then simply click on start.
+Once you clone the project, open in Visual Studio 22 by clicking on PhoenixHeadTracker.sln. Make sure you set to build on x64 and debug or release. Then simply click on start.
 
 ![visualstudio22](https://user-images.githubusercontent.com/129109589/228050319-965458a1-af36-466a-8aa7-c45364bc91dd.png)
 
 
-Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug folder. I have included them with project.
+Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug and release folder. I have included them with project.
 
 ![Screenshot 2023-03-27 145335](https://user-images.githubusercontent.com/129109589/228051761-b6afc531-5881-4ea3-b935-c2c07860951e.png)
 
