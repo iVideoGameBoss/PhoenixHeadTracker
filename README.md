@@ -49,7 +49,7 @@ Due to how gyro data works and drifts, it is a good idea to have a center camera
 
 # Fight Drift
 
-When you are looking around in game the Yaw, Pitch and Roll values can drift overtime. You can fight this type of drift more by adding a negative or positive value. You want to try to keep the Track value to zero. Don't drive yourself crazy over this. Below example shows I add a value of -3 to help fight drift on my Xreal Air glasses Yaw value
+When you are looking around in game the Yaw, Pitch and Roll values can drift overtime. You can fight this type of drift more by adding a negative or positive value. You want to try to keep the Track value to to where when you turn your head and bring it back it shows you the same view more or less or close enough. Don't drive yourself crazy over this. Remenber we are dealing with math and the phycail world. Below example shows I add a value of -3 to help fight drift on my Xreal Air glasses Yaw value
 
 ![fightdrift](https://github.com/iVideoGameBoss/PhoenixHeadTracker/assets/129109589/dbd6ff27-c79a-43ec-984f-d59dbe586da4)
 
