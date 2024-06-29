@@ -163,6 +163,16 @@ namespace PhoenixHeadTracker
         double filteredValuey;
         KalmanFilter filterr; 
         double filteredValuer;
+
+        // Declare these variables at the class level
+        private double driftXCompensation = 0;
+        private double driftYCompensation = 0;
+        private double driftRollCompensation = 0;
+        private double lowPassFilterAlpha = 0.1; // Adjust this value between 0 and 1
+        private double lastXRot = 0;
+        private double lastYRot = 0;
+        private double lastRollRot = 0;
+        private int updateCount = 0; // Add this line to define updateCount
         private void Form1_Load(object sender, EventArgs e)
         {
             // Get the screen dimensions
@@ -214,7 +224,8 @@ namespace PhoenixHeadTracker
             if (xMapped != previousX || yMapped != previousY || rollMapped != previousRoll)
             {
                 // Calculate the change in degrees for each axis
-
+                // by comparing the senor rotation difference
+                // beteen the xMapped to the PreviousX
                 if (Math.Abs(xMapped - previousX)<6000 )
                 {
                     deltaX = xMapped - previousX;
@@ -238,20 +249,40 @@ namespace PhoenixHeadTracker
                 filteredValuer = filterr.Update(deltaRoll);
 
                 // Update the rotation variables with the filtered values
-                xRot += (double)filteredValuex * 0.01;
-                yRot += (double)filteredValuey * 0.01;
-                rollRot += (double)filteredValuer * 0.01;
+                xRot += (double)filteredValuex ;
+                yRot += (double)filteredValuey ;
+                rollRot += (double)filteredValuer ;
+
+                // Calculate the change in rotation
+                double deltaXRotation = arr[2] - lastXRot;
+                double deltaYRotation = arr[1] - lastYRot;
+                double deltaRollRotation = arr[0] - lastRollRot;
+
+                // Calculate and update drift compensation
+                driftXCompensation += deltaXRotation * 0.01; // Adjust this factor as needed
+                driftYCompensation += deltaYRotation * 0.01; // Adjust this factor as needed
+                driftRollCompensation += deltaRollRotation * 0.01; // Adjust this factor as needed
 
                 // Update x, y, and roll rotation distances based on the previous values
                 double tempX2 = (xRot - arr[2]);
-                xRot += rotDistanceYaw - tempX2;
+                xRot += (rotDistanceYaw - tempX2) - driftXCompensation-FightDriftX;
+
 
                 double tempY2 = (yRot - arr[1]);
-                yRot += rotDistancePitch - tempY2;
+                yRot += rotDistancePitch - tempY2 - driftYCompensation - FightDriftY; ;
 
                 double tempRoll2 = (rollRot - arr[0]);
-                rollRot += rollDistanceRoll - tempRoll2;
+                rollRot += rollDistanceRoll - tempRoll2 - driftRollCompensation - FightDriftRoll; ;
 
+                textBoxLog1.Text = string.Format("driftCompensation {0}\r\n", driftXCompensation);
+
+                // Store the current rotation for the next update
+                lastXRot = arr[2];
+                lastYRot = arr[1];
+                lastRollRot = arr[0];
+
+
+                updateCount++;
                 labelDriftFilter.Text = string.Format("Mouse Speed : {0:0}", trackBarDrift.Value);
                 // Update the rotation labels with the new rotation values
                 labelYawRotation.Text = xRot.ToString();
@@ -280,44 +311,14 @@ namespace PhoenixHeadTracker
                 {
 
 
-                    // Filter the rotation data to smooth out noise and improve accuracy
-                    filterx = new KalmanFilter(t, r, p, xRot);
-                    filteredValuex = filterx.Update(xRot);
-                    filtery = new KalmanFilter(t, r, p, yRot);
-                    filteredValuey = filtery.Update(yRot);
-                    filterr = new KalmanFilter(t, r, p, rollRot);
-                    filteredValuer = filterr.Update(rollRot);
-
                     // Compute the coordinates and orientation angles based on the filtered rotation data
                     double x = 0;
                     double y = 0;
                     double z = 0;
-                    double yaw = filteredValuex;
-                    double pitch = filteredValuey;
-                    double roll = filteredValuer;
+                    double yaw = xRot;
+                    double pitch = yRot;
+                    double roll = rollRot;
 
-
-                    // Adjust the orientation angles based on the rotation distances and inversion settings
-                    yaw -= rotDistanceYaw - (xRot - arr[2]) - FightDriftX;
-                    pitch -= rotDistancePitch - (yRot - arr[1]) - FightDriftY; 
-                    roll -= rollDistanceRoll - (rollRot - arr[0]) - FightDriftRoll;
-
-                    // Instantiate Kalman filter 
-                    // t process noise variance
-                    // r measurement noise variance
-                    // p initial estimate error covariance
-                    // yaw,pitch,raw initial state estimate
-                    filterx = new KalmanFilter(t, r, p, yaw);
-                    filteredValuex = filterx.Update(yaw);
-                    filtery = new KalmanFilter(t, r, p, pitch);
-                    filteredValuey = filtery.Update(pitch);
-                    filterr = new KalmanFilter(t, r, p, roll);
-                    filteredValuer = filterr.Update(roll);
-
-                    //textBoxLog1.Text = string.Format("measurement{0}\r\nmeasurement{1}\r\n", filteredValuex, arr[2]);
-                    yaw = filteredValuex;
-                    pitch = filteredValuey;
-                    roll = filteredValuer;
 
                     xRot = yaw;
                     yRot = pitch;
@@ -385,51 +386,42 @@ namespace PhoenixHeadTracker
 
 
 
-            // Rotate the first image (Yaw)
+            // Rotate the image
+            graphics1.Clear(Color.White); // Yaw
+            graphics2.Clear(Color.White); // Pitch
+            graphics3.Clear(Color.White); // Roll
+
             // Clear the graphics and set the rotation point to the center of the image
-            // Rotate the graphics by the negative value of xRot
-            // Draw the image at the top left corner of the graphics
-            // Set the picture box to display the rotated image
-            // Reset the graphics to its original state
-            graphics1.Clear(Color.White);
             graphics1.TranslateTransform(center1.X, center1.Y);
-            graphics1.RotateTransform((float)-xRot);
-            graphics1.DrawImage(Properties.Resources.imageYaw, -center1.X, -center1.Y);
-            pictureBox1.Image = image1;
-            graphics1.ResetTransform();
-
-            // Rotate the second image (Pitch)
-            // Clear the graphics and set the rotation point to the center of the image
-            // Rotate the graphics by the negative value of yRot
-            // Draw the image at the top left corner of the graphics
-            // Set the picture box to display the rotated image
-            // Reset the graphics to its original state
-            graphics2.Clear(Color.White);
             graphics2.TranslateTransform(center2.X, center2.Y);
-            graphics2.RotateTransform((float)-yRot);
-            graphics2.DrawImage(Properties.Resources.imagePitch, -center2.X, -center2.Y);
-            pictureBox2.Image = image2;
-            graphics2.ResetTransform();
-
-            // Rotate the third image (Roll)
-            // Clear the graphics and set the rotation point to the center of the image
-            // Rotate the graphics by the positive value of rollRot
-            // Draw the image at the top left corner of the graphics
-            // Set the picture box to display the rotated image
-            // Reset the graphics to its original state
-            graphics3.Clear(Color.White);
             graphics3.TranslateTransform(center3.X, center3.Y);
+
+            // Rotate the graphics by the negative value of xRot
+            graphics1.RotateTransform((float)-xRot);
+            graphics2.RotateTransform((float)-yRot);
             graphics3.RotateTransform((float)rollRot);
+            
+            // Draw the image at the top left corner of the graphics
+            graphics1.DrawImage(Properties.Resources.imageYaw, -center1.X, -center1.Y);
+            graphics2.DrawImage(Properties.Resources.imagePitch, -center2.X, -center2.Y);
             graphics3.DrawImage(Properties.Resources.imageRoll, -center3.X, -center3.Y);
+            
+            // Set the picture box to display the rotated image
+            pictureBox1.Image = image1;
+            pictureBox2.Image = image2;
             pictureBox3.Image = image3;
+            
+            // Reset the graphics to its original state
+            graphics1.ResetTransform();
+            graphics2.ResetTransform();
             graphics3.ResetTransform();
 
-            // Update the labels and text boxes with relevant information
             // Display the values of arr[2], arr[1], and arr[0] in the respective labels
-            // Display the current position of the mouse in the text box
             labelRawYaw.Text = string.Format("Raw Yaw: {0:0.00}", arr[2]);
             labelRawPitch.Text = string.Format("Raw Pitch: {0:0.00}", arr[1]);
             labelRawRoll.Text = string.Format("Raw Roll: {0:0.00}", arr[0]);
+            
+            // Display the current position of the mouse in the text box
             textBoxMouseLocation.Text = string.Format("Mouse X:{0} Mouse Y:{1}", Cursor.Position.X, Cursor.Position.Y);
         }
 
@@ -446,9 +438,7 @@ namespace PhoenixHeadTracker
             labelDriftFilter.Enabled = true; // Enable a label for the camera drift slider
             groupBoxOpentrack.Enabled = true; // Enable a group box for controlling OpenTrack settings
             groupBoxMouseTrack.Enabled = true; // Enable a group box for controlling mouse tracking settings
-            rotStartYaw = arr[2];
-            rotStartPitch = arr[1];
-            rotStartRoll = arr[0];
+
             // Reset any camera values that need to be reset
             ResetValues();
 
@@ -477,6 +467,9 @@ namespace PhoenixHeadTracker
             deltaY = 0;
             deltaRoll = 0;
 
+            rotStartYaw = arr[2];
+            rotStartPitch = arr[1];
+            rotStartRoll = arr[0];
 
             // Calculate distance between current and desired rotations
             rotDistanceYaw = xRot - arr[2]; // Distance in the yaw (horizontal) axis
