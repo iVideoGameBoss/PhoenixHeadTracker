@@ -1,5 +1,5 @@
 # PhoenixHeadTracker
-The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows). By detecting changes in the user's head yaw and pitch, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
+The Phoenix Head Tracker is a program that interfaces with Xreal Air glasses to capture and analyze sensor data using custom version of [AirAPI_Windows.dll](https://github.com/MSmithDev/AirAPI_Windows) to support roll data. By detecting changes in the user's head yaw and pitch and roll, this program can send this data to opentrack over UDP or you can even control the movement of the computer mouse on screen which can be used to play video games that use mouse look feature. You can also use this feature with Nreal Air 3D SBS mode
 
 [Buy Me a Coffee](https://www.buymeacoffee.com/ivideogameboss) Hey, I created PhoenixHeadTracker for Xreal Air and would really appreciate your support. I work on this software on my own time for you guys. Thank You!
 
@@ -39,15 +39,21 @@ I did the same think for Pitch so it just feels right.
 
 ![pitch](https://user-images.githubusercontent.com/129109589/231812662-f7456c5b-ff64-4778-b579-c5f7ca037648.png)
 
-I reccomend you also flat line roll data as this data is not used by PhoenixHeadTracker
-
-![roll](https://user-images.githubusercontent.com/129109589/231813295-ab9837f9-dc39-4a1f-945f-84421c0ccfd6.png)
 
 # Setup your Center Key in Opentrack
 
 Due to how gyro data works and drifts, it is a good idea to have a center camera key setup. Just click on bind and pick a key. In this example you can see I picked the '-' key on my numpad.
 
 ![Screenshot 2023-04-13 103644](https://user-images.githubusercontent.com/129109589/231813488-767b9d61-0373-4315-b4c1-ae6a2a4d24f9.png)
+
+
+# Fight Drift
+
+When you are looking around in a game the Yaw, Pitch and Roll values can drift overtime. You can fight this type of drift more by adding a negative or positive value. You want to try to keep the ‘Track’ value to where; when you can turn your head and bring it back, and it shows you the same view more or less or close enough. Don't drive yourself crazy over this cause you can always center the view in opentrack with the shortcut key I told you about above. Remember we are dealing with math and the physical world and earth's gravity. Below example shows I added a value of -3 to help fight drift on my Xreal Air glasses Yaw value when playing Elite Dangerous.
+
+![fightdrift](https://github.com/iVideoGameBoss/PhoenixHeadTracker/assets/129109589/dbd6ff27-c79a-43ec-984f-d59dbe586da4)
+
+
 
 # Microsoft Flight Simulator working with opentrack
 
@@ -61,15 +67,15 @@ Phoenixheadtracker https://github.com/iVideoGameBoss/PhoenixHeadTracker/releases
 Opentrack https://github.com/opentrack/opentrack/releases
 
 # How to build using Visual Studio 22
-PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the AirAPI_Windows.dll and hidapi.dll in the PhoenixHeadTracker/bin/x64/Debug/ folder. These two files are required in order to connect to Nreal Air glasses.
+PhoenixHeadTracker is based on the AirAPI_Windows.dll :https://github.com/MSmithDev/AirAPI_Windows: You will find the custom version of AirAPI_Windows.dll that supports roll data and also hidapi.dll in the PhoenixHeadTracker/bin/x64/Release/ and or debug folder. These two files are required in order to connect to Xreal Air glasses. The version of AirAPI_Windows.dll included with PhoenixHeadTracker supports roll data. 
 
 
-Once you clone the project, open in Visual Studio 22 by clicking on PhoenixHeadTracker.sln. Make sure you set to build on x64 and debug.Then simply click on start.
+Once you clone the project, open in Visual Studio 22 by clicking on PhoenixHeadTracker.sln. Make sure you set to build on x64 and debug or release. Then simply click on start.
 
 ![visualstudio22](https://user-images.githubusercontent.com/129109589/228050319-965458a1-af36-466a-8aa7-c45364bc91dd.png)
 
 
-Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug folder. I have included them with project.
+Make sure that both AirAPI_Windows.dll and hidapi.dll are in the debug and release folder. I have included them with project.
 
 ![Screenshot 2023-03-27 145335](https://user-images.githubusercontent.com/129109589/228051761-b6afc531-5881-4ea3-b935-c2c07860951e.png)
 
