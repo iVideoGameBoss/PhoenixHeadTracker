@@ -155,7 +155,7 @@ namespace PhoenixHeadTracker
 
         double t = 0.01; // process noise variance
         double r = 0.002; // measurement noise variance
-        double p = 0.0; // initial estimate error covariance
+        double p = 1.0; // initial estimate error covariance
 
         KalmanFilter filterx; 
         double filteredValuex;
@@ -238,9 +238,20 @@ namespace PhoenixHeadTracker
                 filteredValuer = filterr.Update(deltaRoll);
 
                 // Update the rotation variables with the filtered values
-                xRot += (double)filteredValuex * (0.02 * trackBarDrift.Value);
-                yRot += (double)filteredValuey * (0.02 * trackBarDrift.Value);
-                rollRot += (double)filteredValuer * (0.02 * trackBarDrift.Value);
+                xRot += (double)filteredValuex * 0.01;
+                yRot += (double)filteredValuey * 0.01;
+                rollRot += (double)filteredValuer * 0.01;
+
+                // Update x, y, and roll rotation distances based on the previous values
+                double tempX2 = (xRot - arr[2]);
+                xRot += rotDistanceYaw - tempX2;
+
+                double tempY2 = (yRot - arr[1]);
+                yRot += rotDistancePitch - tempY2;
+
+                double tempRoll2 = (rollRot - arr[0]);
+                rollRot += rollDistanceRoll - tempRoll2;
+
                 labelDriftFilter.Text = string.Format("Mouse Speed : {0:0}", trackBarDrift.Value);
                 // Update the rotation labels with the new rotation values
                 labelYawRotation.Text = xRot.ToString();
@@ -267,21 +278,7 @@ namespace PhoenixHeadTracker
                 // Check if the track is open
                 if (isOpenTrack == true)
                 {
-                    // Implement a small deadzone to prevent tiny movements from accumulating
-                    const double DEADZONE = 0.01; // Adjust this value as needed
 
-                    // Update x, y, and roll rotation distances based on the previous values
-                    double tempX = (xRot - arr[2]);
-                    if (Math.Abs(tempX) < DEADZONE) tempX = 0;
-                    xRot += rotDistanceYaw - tempX;
-
-                    double tempY = (yRot - arr[1]);
-                    if (Math.Abs(tempY) < DEADZONE) tempY = 0;
-                    yRot += rotDistancePitch - tempY ;
-
-                    double tempRoll = (rollRot - arr[0])  ;
-                    if (Math.Abs(tempRoll) < DEADZONE) tempRoll = 0;
-                    rollRot += rollDistanceRoll - tempRoll;
 
                     // Filter the rotation data to smooth out noise and improve accuracy
                     filterx = new KalmanFilter(t, r, p, xRot);
@@ -321,6 +318,10 @@ namespace PhoenixHeadTracker
                     yaw = filteredValuex;
                     pitch = filteredValuey;
                     roll = filteredValuer;
+
+                    xRot = yaw;
+                    yRot = pitch;
+                    rollRot = roll;
                     // Update the log textbox(for debugging)
                     //textBoxLog1.Text = string.Format("{0}\r\n", rotDistanceYaw - rotStartYaw);
 
@@ -361,7 +362,7 @@ namespace PhoenixHeadTracker
                     {
                         // Set the mouse delta values to the filtered values
                         input.inputUnion.mouseInput.dx = -(int)(filteredValuex * (0.02 * trackBarDrift.Value));
-                        input.inputUnion.mouseInput.dy = -(int)(filteredValuey * (0.02 * trackBarDrift.Value));
+                        input.inputUnion.mouseInput.dy = (int)(filteredValuey * (0.02 * trackBarDrift.Value));
 
                         // Allocate memory for the INPUT structure
                         IntPtr lParam = Marshal.AllocHGlobal(Marshal.SizeOf(input));
@@ -797,67 +798,6 @@ namespace PhoenixHeadTracker
             labelFightDriftRoll.Text = string.Format("Opentrack Fight Drift {0:0}", FightDriftRoll.ToString());
         }
 
-        //private void filterData(out double filteredDeltaX, out double filteredDeltaY, out double filteredDeltaRoll,
-        //                        double x, double y, double roll)
-        //{
-        //    // Set the filter constant alpha (between 0 and 1) - higher values = smoother filter
-        //    // This variable controls the weight given to new input values vs. the filtered output.
-        //    // A higher value of alpha results in a smoother filter, but can make the filter less responsive to changes in input.
-
-        //    double alpha = 0.2;
-
-        //    // Define the number of raw input values to capture in the filter
-        //    // This variable controls the number of raw input values that are used to compute the filtered output.
-        //    // A larger value of numRawValues results in a slower response time but smoother output.
-        //    // A smaller value of numRawValues results in a faster response time but noisier output.
-
-        //    int numRawValues = trackBarDrift.Value;
-
-        //    // Define arrays for storing raw input values and filtered values
-        //    // These arrays store the most recent raw input values and their corresponding filtered values.
-        //    // The size of the arrays is equal to numRawValues.
-
-        //    double[] rawDeltaX = new double[numRawValues];
-        //    double[] rawDeltaY = new double[numRawValues];
-        //    double[] rawDeltaRoll = new double[numRawValues];
-        //    filteredDeltaX = 0;
-        //    filteredDeltaY = 0;
-        //    filteredDeltaRoll = 0;
-
-        //    // Shift the raw input values down by one index
-        //    // This loop shifts the raw input values down by one index in the arrays,
-        //    // making room for the most recent input values to be added to the beginning.
-        //    // The oldest input value is discarded.
-
-        //    for (int i = numRawValues - 1; i > 0; i--)
-        //    {
-        //        rawDeltaX[i] = rawDeltaX[i - 1];
-        //        rawDeltaY[i] = rawDeltaY[i - 1];
-        //        rawDeltaRoll[i] = rawDeltaRoll[i - 1];
-        //    }
-
-        //    // Add the current raw input values to the beginning of the arrays
-        //    // This step adds the most recent input values to the beginning of the arrays,
-        //    // overwriting the oldest input value that was shifted out in the previous loop.
-
-        //    rawDeltaX[0] = x;
-        //    rawDeltaY[0] = y;
-        //    rawDeltaRoll[0] = roll;
-
-        //    // Apply the EMA filter to the raw input values
-        //    // This loop applies the EMA (Exponential Moving Average) filter to the raw input values,
-        //    // producing the filtered output values for deltaX, deltaY, and deltaRoll.
-        //    // Each filtered output value is computed as a weighted average of the raw input values
-        //    // and the previous filtered output value, with the weight given by alpha.
-
-        //    for (int i = 0; i < numRawValues; i++)
-        //    {
-        //        filteredDeltaX = alpha * rawDeltaX[i] + (1 - alpha) * filteredDeltaX;
-        //        filteredDeltaY = alpha * rawDeltaY[i] + (1 - alpha) * filteredDeltaY;
-        //        filteredDeltaRoll = alpha * rawDeltaRoll[i] + (1 - alpha) * filteredDeltaRoll;
-        //        //rawDeltaXTrack[i] = filteredDeltaX;
-        //    }
-        //}
 
     }
 
