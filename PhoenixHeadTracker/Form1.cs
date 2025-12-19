@@ -7,6 +7,7 @@ using Timer = System.Windows.Forms.Timer;
 using System.Net;
 using System.Net.Sockets;
 using System.Data;
+using System.Linq;
 
 /*
  * PhoenixHeadTracker - A head-tracking application for controlling the mouse cursor for video games
@@ -179,6 +180,11 @@ namespace PhoenixHeadTracker
        
         // UDP Client used to send OpenTrack data
         private UdpClient udpClient = new UdpClient();
+
+        private void PrependTextBoxLog(string text)
+        {
+            textBoxLog1.Lines = textBoxLog1.Lines.Prepend(System.DateTime.Now.ToString() + " : " + text).ToArray();
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -365,7 +371,7 @@ namespace PhoenixHeadTracker
                         buttonStopOpentrack.PerformClick();
 
                         // Log a message
-                        textBoxLog1.Text = "OpenTrack Stopped.  Exception on Send: " + ex.Message;
+                        PrependTextBoxLog("OpenTrack Stopped.  Exception on Send: " + ex.Message);
                     }
                     
                 }
@@ -542,7 +548,7 @@ namespace PhoenixHeadTracker
             textBoxRollTrackValue.Enabled = false;
 
             // Log a message
-            textBoxLog1.Text = "OpenTrack Started";
+            PrependTextBoxLog("OpenTrack Started");
         }
 
         private void buttonStopOpentrack_Click(object sender, EventArgs e)
@@ -578,7 +584,7 @@ namespace PhoenixHeadTracker
             textBoxRollTrackValue.Enabled = true;
 
             // Log a message
-            textBoxLog1.Text = "OpenTrack Stopped";
+            PrependTextBoxLog("OpenTrack Stopped");
         }
         
         private void buttonReset_Click(object sender, EventArgs e)
@@ -624,44 +630,55 @@ namespace PhoenixHeadTracker
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Call the StartConnection method to initiate a connection and store the result in a variable
-            int result = StartConnection();
-
-            // Check if the result is equal to 1 to confirm if the connection is successful
-            if (result == 1)
+            try
             {
-                // If the connection is successful, set the text of label2 to "Connected"
-                label2.Text = "Connected";
+                // Call the StartConnection method to initiate a connection and store the result in a variable
+                int result = StartConnection();
 
-                // Set the window handle to the base handle
-                hWnd = base.Handle;
+                // Check if the result is equal to 1 to confirm if the connection is successful
+                if (result == 1)
+                {
+                    // If the connection is successful, set the text of label2 to "Connected"
+                    label2.Text = "Connected";
 
-                // Create a new timer object and set the interval to 6 seconds
-                Timer timer = new Timer();
-                timer.Interval = 6000; // 6 seconds
+                    // Set the window handle to the base handle
+                    hWnd = base.Handle;
 
-                // Attach an event handler for the timer tick
-                timer.Tick += new EventHandler(timer2_Tick);
+                    // Create a new timer object and set the interval to 6 seconds
+                    Timer timer = new Timer();
+                    timer.Interval = 6000; // 6 seconds
 
-                // Start the timer
-                timer.Start();
+                    // Attach an event handler for the timer tick
+                    timer.Tick += new EventHandler(timer2_Tick);
 
-                // Enable the timer1 object
-                timer1.Enabled = true;
+                    // Start the timer
+                    timer.Start();
 
-                // (Re)start the Stopwatch
-                gfxRateLimiter.Restart();
+                    // Enable the timer1 object
+                    timer1.Enabled = true;
 
-                // Log a message
-                textBoxLog1.Text = "Glasses Connected";
+                    // (Re)start the Stopwatch
+                    gfxRateLimiter.Restart();
+
+                    // Log a message
+                    PrependTextBoxLog("Glasses Connected");
+                }
+                else
+                {
+                    // If the connection is not successful, set the text of label2 to "Not Connected"
+                    label2.Text = "Not Connected";
+
+                    // Log a message
+                    PrependTextBoxLog("Glasses failed to connect.  StartConnect() returned: " + result.ToString());
+                }
             }
-            else
+            catch (Exception ex)
             {
                 // If the connection is not successful, set the text of label2 to "Not Connected"
                 label2.Text = "Not Connected";
 
                 // Log a message
-                textBoxLog1.Text = "Glasses failed to connect.  StartConnect() returned: " + result.ToString();
+                PrependTextBoxLog("Glasses failed to connect.  Exception: " + ex.Message);
             }
         }
 
@@ -686,7 +703,7 @@ namespace PhoenixHeadTracker
             textBoxRollTrackValue.Enabled = false;
 
             // Log a message
-            textBoxLog1.Text = "MouseTrack Enabled";
+            PrependTextBoxLog("MouseTrack Enabled");
         }
 
         private void buttonMouseTrackOff_Click(object sender, EventArgs e)
@@ -705,7 +722,7 @@ namespace PhoenixHeadTracker
             textBoxRollTrackValue.Enabled = true;
 
             // Log a message
-            textBoxLog1.Text = "MouseTrack Stopped";
+            PrependTextBoxLog("MouseTrack Stopped");
         }
 
         public Form1()

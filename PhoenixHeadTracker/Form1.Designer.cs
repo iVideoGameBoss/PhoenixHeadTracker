@@ -285,7 +285,6 @@
             this.textBoxLog1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxLog1.Size = new System.Drawing.Size(838, 26);
             this.textBoxLog1.TabIndex = 22;
-            this.textBoxLog1.Visible = false;
             // 
             // textBoxYawTrackValue
             // 
