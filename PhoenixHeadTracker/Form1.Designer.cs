@@ -146,7 +146,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -176,7 +175,7 @@
             this.trackBarYawSpeed.Maximum = 50000;
             this.trackBarYawSpeed.Minimum = 500;
             this.trackBarYawSpeed.Name = "trackBarYawSpeed";
-            this.trackBarYawSpeed.Size = new System.Drawing.Size(200, 45);
+            this.trackBarYawSpeed.Size = new System.Drawing.Size(200, 90);
             this.trackBarYawSpeed.TabIndex = 12;
             this.trackBarYawSpeed.Value = 5760;
             // 
@@ -188,7 +187,7 @@
             this.trackBarPitchSpeed.Maximum = 50000;
             this.trackBarPitchSpeed.Minimum = 500;
             this.trackBarPitchSpeed.Name = "trackBarPitchSpeed";
-            this.trackBarPitchSpeed.Size = new System.Drawing.Size(200, 45);
+            this.trackBarPitchSpeed.Size = new System.Drawing.Size(200, 90);
             this.trackBarPitchSpeed.TabIndex = 13;
             this.trackBarPitchSpeed.Value = 5760;
             // 
@@ -210,7 +209,7 @@
             this.labelMatchYaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchYaw.Location = new System.Drawing.Point(16, 41);
             this.labelMatchYaw.Name = "labelMatchYaw";
-            this.labelMatchYaw.Size = new System.Drawing.Size(120, 25);
+            this.labelMatchYaw.Size = new System.Drawing.Size(229, 48);
             this.labelMatchYaw.TabIndex = 15;
             this.labelMatchYaw.Text = "Track Yaw:";
             // 
@@ -220,7 +219,7 @@
             this.labelMatchPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchPitch.Location = new System.Drawing.Point(14, 41);
             this.labelMatchPitch.Name = "labelMatchPitch";
-            this.labelMatchPitch.Size = new System.Drawing.Size(126, 25);
+            this.labelMatchPitch.Size = new System.Drawing.Size(242, 48);
             this.labelMatchPitch.TabIndex = 16;
             this.labelMatchPitch.Text = "Track Pitch:";
             this.labelMatchPitch.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -231,7 +230,7 @@
             this.labelRawYaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRawYaw.Location = new System.Drawing.Point(28, 16);
             this.labelRawYaw.Name = "labelRawYaw";
-            this.labelRawYaw.Size = new System.Drawing.Size(108, 25);
+            this.labelRawYaw.Size = new System.Drawing.Size(207, 48);
             this.labelRawYaw.TabIndex = 17;
             this.labelRawYaw.Text = "Raw Yaw:";
             // 
@@ -241,7 +240,7 @@
             this.labelRawPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRawPitch.Location = new System.Drawing.Point(26, 16);
             this.labelRawPitch.Name = "labelRawPitch";
-            this.labelRawPitch.Size = new System.Drawing.Size(114, 25);
+            this.labelRawPitch.Size = new System.Drawing.Size(220, 48);
             this.labelRawPitch.TabIndex = 18;
             this.labelRawPitch.Text = "Raw Pitch:";
             // 
@@ -279,12 +278,12 @@
             // 
             // textBoxLog1
             // 
-            this.textBoxLog1.Location = new System.Drawing.Point(469, 573);
+            this.textBoxLog1.Location = new System.Drawing.Point(12, 622);
             this.textBoxLog1.Multiline = true;
             this.textBoxLog1.Name = "textBoxLog1";
             this.textBoxLog1.ReadOnly = true;
             this.textBoxLog1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLog1.Size = new System.Drawing.Size(35, 26);
+            this.textBoxLog1.Size = new System.Drawing.Size(838, 26);
             this.textBoxLog1.TabIndex = 22;
             this.textBoxLog1.Visible = false;
             // 
@@ -310,7 +309,7 @@
             this.labelRawRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRawRoll.Location = new System.Drawing.Point(26, 16);
             this.labelRawRoll.Name = "labelRawRoll";
-            this.labelRawRoll.Size = new System.Drawing.Size(103, 25);
+            this.labelRawRoll.Size = new System.Drawing.Size(199, 48);
             this.labelRawRoll.TabIndex = 27;
             this.labelRawRoll.Text = "Raw Roll:";
             // 
@@ -320,7 +319,7 @@
             this.labelMatchRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchRoll.Location = new System.Drawing.Point(14, 41);
             this.labelMatchRoll.Name = "labelMatchRoll";
-            this.labelMatchRoll.Size = new System.Drawing.Size(115, 25);
+            this.labelMatchRoll.Size = new System.Drawing.Size(221, 48);
             this.labelMatchRoll.TabIndex = 26;
             this.labelMatchRoll.Text = "Track Roll:";
             this.labelMatchRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -333,7 +332,7 @@
             this.trackBarRollSpeed.Maximum = 50000;
             this.trackBarRollSpeed.Minimum = 500;
             this.trackBarRollSpeed.Name = "trackBarRollSpeed";
-            this.trackBarRollSpeed.Size = new System.Drawing.Size(200, 45);
+            this.trackBarRollSpeed.Size = new System.Drawing.Size(200, 90);
             this.trackBarRollSpeed.TabIndex = 28;
             this.trackBarRollSpeed.Value = 5760;
             // 
@@ -720,7 +719,7 @@
             this.trackBarDrift.Maximum = 40;
             this.trackBarDrift.Minimum = 1;
             this.trackBarDrift.Name = "trackBarDrift";
-            this.trackBarDrift.Size = new System.Drawing.Size(168, 45);
+            this.trackBarDrift.Size = new System.Drawing.Size(168, 90);
             this.trackBarDrift.TabIndex = 37;
             this.trackBarDrift.Value = 6;
             // 
@@ -749,7 +748,7 @@
             this.trackBarMouseSmooth.Maximum = 20;
             this.trackBarMouseSmooth.Minimum = 1;
             this.trackBarMouseSmooth.Name = "trackBarMouseSmooth";
-            this.trackBarMouseSmooth.Size = new System.Drawing.Size(149, 45);
+            this.trackBarMouseSmooth.Size = new System.Drawing.Size(149, 90);
             this.trackBarMouseSmooth.TabIndex = 39;
             this.trackBarMouseSmooth.Value = 1;
             // 
@@ -767,7 +766,7 @@
             this.trackBarMouseDelay.Location = new System.Drawing.Point(9, 110);
             this.trackBarMouseDelay.Maximum = 20;
             this.trackBarMouseDelay.Name = "trackBarMouseDelay";
-            this.trackBarMouseDelay.Size = new System.Drawing.Size(149, 45);
+            this.trackBarMouseDelay.Size = new System.Drawing.Size(149, 90);
             this.trackBarMouseDelay.TabIndex = 41;
             // 
             // linkLabel2
@@ -787,7 +786,7 @@
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.Location = new System.Drawing.Point(9, 582);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(103, 16);
+            this.linkLabel3.Size = new System.Drawing.Size(197, 30);
             this.linkLabel3.TabIndex = 44;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Buy me a coffee";
@@ -810,7 +809,7 @@
             this.checkBoxYaw.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxYaw.Location = new System.Drawing.Point(12, 165);
             this.checkBoxYaw.Name = "checkBoxYaw";
-            this.checkBoxYaw.Size = new System.Drawing.Size(101, 17);
+            this.checkBoxYaw.Size = new System.Drawing.Size(114, 27);
             this.checkBoxYaw.TabIndex = 47;
             this.checkBoxYaw.Text = "Send Yaw Data";
             this.checkBoxYaw.UseVisualStyleBackColor = true;
@@ -822,7 +821,7 @@
             this.checkBoxPitch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPitch.Location = new System.Drawing.Point(12, 188);
             this.checkBoxPitch.Name = "checkBoxPitch";
-            this.checkBoxPitch.Size = new System.Drawing.Size(104, 17);
+            this.checkBoxPitch.Size = new System.Drawing.Size(117, 27);
             this.checkBoxPitch.TabIndex = 48;
             this.checkBoxPitch.Text = "Send Pitch Data";
             this.checkBoxPitch.UseVisualStyleBackColor = true;
@@ -832,7 +831,7 @@
             this.checkBoxRoll.AutoSize = true;
             this.checkBoxRoll.Location = new System.Drawing.Point(12, 211);
             this.checkBoxRoll.Name = "checkBoxRoll";
-            this.checkBoxRoll.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxRoll.Size = new System.Drawing.Size(111, 27);
             this.checkBoxRoll.TabIndex = 49;
             this.checkBoxRoll.Text = "Send Roll Data";
             this.checkBoxRoll.UseVisualStyleBackColor = true;
@@ -874,7 +873,7 @@
             this.checkBoxInvertRoll.AutoSize = true;
             this.checkBoxInvertRoll.Location = new System.Drawing.Point(128, 211);
             this.checkBoxInvertRoll.Name = "checkBoxInvertRoll";
-            this.checkBoxInvertRoll.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInvertRoll.Size = new System.Drawing.Size(28, 27);
             this.checkBoxInvertRoll.TabIndex = 57;
             this.checkBoxInvertRoll.UseVisualStyleBackColor = true;
             // 
@@ -883,7 +882,7 @@
             this.checkBoxInvertPitch.AutoSize = true;
             this.checkBoxInvertPitch.Location = new System.Drawing.Point(128, 188);
             this.checkBoxInvertPitch.Name = "checkBoxInvertPitch";
-            this.checkBoxInvertPitch.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInvertPitch.Size = new System.Drawing.Size(28, 27);
             this.checkBoxInvertPitch.TabIndex = 56;
             this.checkBoxInvertPitch.UseVisualStyleBackColor = true;
             // 
@@ -892,7 +891,7 @@
             this.checkBoxInvertYaw.AutoSize = true;
             this.checkBoxInvertYaw.Location = new System.Drawing.Point(128, 165);
             this.checkBoxInvertYaw.Name = "checkBoxInvertYaw";
-            this.checkBoxInvertYaw.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInvertYaw.Size = new System.Drawing.Size(28, 27);
             this.checkBoxInvertYaw.TabIndex = 55;
             this.checkBoxInvertYaw.UseVisualStyleBackColor = true;
             // 
@@ -979,7 +978,7 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(862, 609);
+            this.ClientSize = new System.Drawing.Size(862, 660);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.groupBoxMouseTrack);
