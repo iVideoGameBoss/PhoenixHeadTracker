@@ -7,6 +7,7 @@ using Timer = System.Windows.Forms.Timer;
 using System.Net;
 using System.Net.Sockets;
 using System.Data;
+using System.Linq;
 
 /*
  * PhoenixHeadTracker - A head-tracking application for controlling the mouse cursor for video games
@@ -173,6 +174,18 @@ namespace PhoenixHeadTracker
         private double lastYRot = 0;
         private double lastRollRot = 0;
         private int updateCount = 0; // Add this line to define updateCount
+
+        private Stopwatch gfxRateLimiter = Stopwatch.StartNew();
+        private bool gfxDirty = true;
+       
+        // UDP Client used to send OpenTrack data
+        private UdpClient udpClient = new UdpClient();
+
+        private void PrependTextBoxLog(string text)
+        {
+            textBoxLog1.Lines = textBoxLog1.Lines.Prepend(System.DateTime.Now.ToString() + " : " + text).ToArray();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // Get the screen dimensions
@@ -223,6 +236,9 @@ namespace PhoenixHeadTracker
             // Check if any of the mapped degrees have changed
             if (xMapped != previousX || yMapped != previousY || rollMapped != previousRoll)
             {
+                // Flag that we have updates to draw
+                gfxDirty = true;
+
                 // Calculate the change in degrees for each axis
                 // by comparing the senor rotation difference
                 // beteen the xMapped to the PreviousX
@@ -274,7 +290,7 @@ namespace PhoenixHeadTracker
                 double tempRoll2 = (rollRot - arr[0]);
                 rollRot += rollDistanceRoll - tempRoll2 - driftRollCompensation - FightDriftRoll; ;
 
-                textBoxLog1.Text = string.Format("driftCompensation {0}\r\n", driftXCompensation);
+                //textBoxLog1.Text = string.Format("driftCompensation {0}\r\n", driftXCompensation);
 
                 // Store the current rotation for the next update
                 lastXRot = arr[2];
@@ -340,16 +356,22 @@ namespace PhoenixHeadTracker
                     if (checkBoxPitch.Checked == false) { pitch = 0; }
                     if (checkBoxRoll.Checked == false) { roll = 0; }
 
-
-                    // Create a new UDP client to communicate with the OpenTrack server
-                    using (UdpClient udpClient = new UdpClient())
-                    {
+                    // Use the UDP client to communicate with the OpenTrack server
+                    try {
                         // Pack the coordinates and orientation angles into a byte array for sending over the network
                         byte[] data = new byte[6 * sizeof(double)];
                         Buffer.BlockCopy(new double[] { x, y, z, yaw, pitch, roll }, 0, data, 0, data.Length);
                         // Send the byte array over UDP to the specified endpoint
                         udpClient.Send(data, data.Length, endPoint);
                         // Close the udpClient to release any resources it's using
+                    } catch (Exception ex)
+                    {
+                        // Sending to OpenTrack failed - stop OpenTrack as if user
+                        // clicked the button.
+                        buttonStopOpentrack.PerformClick();
+
+                        // Log a message
+                        PrependTextBoxLog("OpenTrack Stopped.  Exception on Send: " + ex.Message);
                     }
                     
                 }
@@ -384,45 +406,51 @@ namespace PhoenixHeadTracker
 
             }
 
+            // Update the graphics, but no more than once every 100ms
+            if ((gfxDirty) && (gfxRateLimiter.ElapsedMilliseconds > 100))
+            {
+                // Rotate the image
+                graphics1.Clear(Color.White); // Yaw
+                graphics2.Clear(Color.White); // Pitch
+                graphics3.Clear(Color.White); // Roll
 
+                // Clear the graphics and set the rotation point to the center of the image
+                graphics1.TranslateTransform(center1.X, center1.Y);
+                graphics2.TranslateTransform(center2.X, center2.Y);
+                graphics3.TranslateTransform(center3.X, center3.Y);
 
-            // Rotate the image
-            graphics1.Clear(Color.White); // Yaw
-            graphics2.Clear(Color.White); // Pitch
-            graphics3.Clear(Color.White); // Roll
+                // Rotate the graphics by the negative value of xRot
+                graphics1.RotateTransform((float)-xRot);
+                graphics2.RotateTransform((float)-yRot);
+                graphics3.RotateTransform((float)rollRot);
 
-            // Clear the graphics and set the rotation point to the center of the image
-            graphics1.TranslateTransform(center1.X, center1.Y);
-            graphics2.TranslateTransform(center2.X, center2.Y);
-            graphics3.TranslateTransform(center3.X, center3.Y);
+                // Draw the image at the top left corner of the graphics
+                graphics1.DrawImage(Properties.Resources.imageYaw, -center1.X, -center1.Y);
+                graphics2.DrawImage(Properties.Resources.imagePitch, -center2.X, -center2.Y);
+                graphics3.DrawImage(Properties.Resources.imageRoll, -center3.X, -center3.Y);
 
-            // Rotate the graphics by the negative value of xRot
-            graphics1.RotateTransform((float)-xRot);
-            graphics2.RotateTransform((float)-yRot);
-            graphics3.RotateTransform((float)rollRot);
-            
-            // Draw the image at the top left corner of the graphics
-            graphics1.DrawImage(Properties.Resources.imageYaw, -center1.X, -center1.Y);
-            graphics2.DrawImage(Properties.Resources.imagePitch, -center2.X, -center2.Y);
-            graphics3.DrawImage(Properties.Resources.imageRoll, -center3.X, -center3.Y);
-            
-            // Set the picture box to display the rotated image
-            pictureBox1.Image = image1;
-            pictureBox2.Image = image2;
-            pictureBox3.Image = image3;
-            
-            // Reset the graphics to its original state
-            graphics1.ResetTransform();
-            graphics2.ResetTransform();
-            graphics3.ResetTransform();
+                // Set the picture box to display the rotated image
+                pictureBox1.Image = image1;
+                pictureBox2.Image = image2;
+                pictureBox3.Image = image3;
 
-            // Display the values of arr[2], arr[1], and arr[0] in the respective labels
-            labelRawYaw.Text = string.Format("Raw Yaw: {0:0.00}", arr[2]);
-            labelRawPitch.Text = string.Format("Raw Pitch: {0:0.00}", arr[1]);
-            labelRawRoll.Text = string.Format("Raw Roll: {0:0.00}", arr[0]);
-            
-            // Display the current position of the mouse in the text box
-            textBoxMouseLocation.Text = string.Format("Mouse X:{0} Mouse Y:{1}", Cursor.Position.X, Cursor.Position.Y);
+                // Reset the graphics to its original state
+                graphics1.ResetTransform();
+                graphics2.ResetTransform();
+                graphics3.ResetTransform();
+
+                // Display the values of arr[2], arr[1], and arr[0] in the respective labels
+                labelRawYaw.Text = string.Format("Raw Yaw: {0:0.00}", arr[2]);
+                labelRawPitch.Text = string.Format("Raw Pitch: {0:0.00}", arr[1]);
+                labelRawRoll.Text = string.Format("Raw Roll: {0:0.00}", arr[0]);
+
+                // Display the current position of the mouse in the text box
+                textBoxMouseLocation.Text = string.Format("Mouse X:{0} Mouse Y:{1}", Cursor.Position.X, Cursor.Position.Y);
+
+                // Clear the flag and reset the StopWatch
+                gfxDirty = false;
+                gfxRateLimiter.Restart();
+            }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -518,6 +546,9 @@ namespace PhoenixHeadTracker
             textBoxYawTrackValue.Enabled = false;
             textBoxPitchTrackValue.Enabled = false;
             textBoxRollTrackValue.Enabled = false;
+
+            // Log a message
+            PrependTextBoxLog("OpenTrack Started");
         }
 
         private void buttonStopOpentrack_Click(object sender, EventArgs e)
@@ -551,6 +582,9 @@ namespace PhoenixHeadTracker
             textBoxYawTrackValue.Enabled = true;
             textBoxPitchTrackValue.Enabled = true;
             textBoxRollTrackValue.Enabled = true;
+
+            // Log a message
+            PrependTextBoxLog("OpenTrack Stopped");
         }
         
         private void buttonReset_Click(object sender, EventArgs e)
@@ -596,36 +630,56 @@ namespace PhoenixHeadTracker
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Call the StartConnection method to initiate a connection and store the result in a variable
-            int result = StartConnection();
-
-            // Check if the result is equal to 1 to confirm if the connection is successful
-            if (result == 1)
+            try
             {
-                // If the connection is successful, set the text of label2 to "Connected"
-                label2.Text = "Connected";
+                // Call the StartConnection method to initiate a connection and store the result in a variable
+                int result = StartConnection();
 
-                // Set the window handle to the base handle
-                hWnd = base.Handle;
+                // Check if the result is equal to 1 to confirm if the connection is successful
+                if (result == 1)
+                {
+                    // If the connection is successful, set the text of label2 to "Connected"
+                    label2.Text = "Connected";
 
-                // Create a new timer object and set the interval to 6 seconds
-                Timer timer = new Timer();
-                timer.Interval = 6000; // 6 seconds
+                    // Set the window handle to the base handle
+                    hWnd = base.Handle;
 
-                // Attach an event handler for the timer tick
-                timer.Tick += new EventHandler(timer2_Tick);
+                    // Create a new timer object and set the interval to 6 seconds
+                    Timer timer = new Timer();
+                    timer.Interval = 6000; // 6 seconds
 
-                // Start the timer
-                timer.Start();
+                    // Attach an event handler for the timer tick
+                    timer.Tick += new EventHandler(timer2_Tick);
+
+                    // Start the timer
+                    timer.Start();
+
+                    // Enable the timer1 object
+                    timer1.Enabled = true;
+
+                    // (Re)start the Stopwatch
+                    gfxRateLimiter.Restart();
+
+                    // Log a message
+                    PrependTextBoxLog("Glasses Connected");
+                }
+                else
+                {
+                    // If the connection is not successful, set the text of label2 to "Not Connected"
+                    label2.Text = "Not Connected";
+
+                    // Log a message
+                    PrependTextBoxLog("Glasses failed to connect.  StartConnect() returned: " + result.ToString());
+                }
             }
-            else
+            catch (Exception ex)
             {
                 // If the connection is not successful, set the text of label2 to "Not Connected"
                 label2.Text = "Not Connected";
-            }
 
-            // Enable the timer1 object
-            timer1.Enabled = true;
+                // Log a message
+                PrependTextBoxLog("Glasses failed to connect.  Exception: " + ex.Message);
+            }
         }
 
         private void buttonMouseTrackOn_Click(object sender, EventArgs e)
@@ -647,6 +701,9 @@ namespace PhoenixHeadTracker
             textBoxYawTrackValue.Enabled = false;
             textBoxPitchTrackValue.Enabled = false;
             textBoxRollTrackValue.Enabled = false;
+
+            // Log a message
+            PrependTextBoxLog("MouseTrack Enabled");
         }
 
         private void buttonMouseTrackOff_Click(object sender, EventArgs e)
@@ -663,6 +720,9 @@ namespace PhoenixHeadTracker
             textBoxYawTrackValue.Enabled = true;
             textBoxPitchTrackValue.Enabled = true;
             textBoxRollTrackValue.Enabled = true;
+
+            // Log a message
+            PrependTextBoxLog("MouseTrack Stopped");
         }
 
         public Form1()

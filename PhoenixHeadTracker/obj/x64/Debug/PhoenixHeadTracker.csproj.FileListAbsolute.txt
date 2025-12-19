@@ -1,35 +1,11 @@
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe.config
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.pdb
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.AssemblyReference.cache
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.SuggestedBindingRedirects.cache
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.g.resources
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Form1.resources
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Properties.Resources.resources
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.GenerateResource.cache
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.exe
-E:\MyProject\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.pdb
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe.config
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.pdb
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.AssemblyReference.cache
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.SuggestedBindingRedirects.cache
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.g.resources
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Form1.resources
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Properties.Resources.resources
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.GenerateResource.cache
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.exe
-C:\Phoenix\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.pdb
-E:\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe.config
-E:\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe
-E:\PhoenixHeadTracker\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.pdb
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.AssemblyReference.cache
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.g.resources
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Form1.resources
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Properties.Resources.resources
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.GenerateResource.cache
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.exe
-E:\PhoenixHeadTracker\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.pdb
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe.config
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.exe
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\bin\x64\Debug\PhoenixHeadTracker.pdb
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.AssemblyReference.cache
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.g.resources
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Form1.resources
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.Properties.Resources.resources
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.GenerateResource.cache
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.csproj.CoreCompileInputs.cache
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.exe
+E:\Users\MichaelSanzo\sanzo.ms\Sanzo Family - Documents\Documents\Projects\VR\PhoenixHeadTracker-sanme\PhoenixHeadTracker\obj\x64\Debug\PhoenixHeadTracker.pdb
