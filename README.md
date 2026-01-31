@@ -99,3 +99,7 @@ The GetEuler function returns an array for Yaw, Pitch and Roll.
 
 https://user-images.githubusercontent.com/129109589/230140740-2248b626-169c-4f85-bb17-baec839264f3.mp4
 
+# Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=iVideoGameBoss/PhoenixHeadTracker&type=Date)](https://star-history.com/#iVideoGameBoss/PhoenixHeadTracker&Date)
+
